@@ -2,7 +2,14 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 
-	$choice = explode("=", parse_url($_SERVER['QUERY_STRING'])["path"]);
+	//$choice = explode("=", parse_url($_SERVER['QUERY_STRING'])["path"]);
+	//$choice = explode("=", parse_url($_SERVER['QUERY_STRING'])["path"]);
+
+	$choice = array();
+	parse_str($_SERVER["QUERY_STRING"], $choice);
+
+	var_dump($choice);
+	exit(0);
 
 	switch($choice[1]){
 		case "overskiftType":
@@ -61,12 +68,12 @@
 			$projekt = new projekter();
 			$billede = new Billeder();
 			
-			$resultPro = $projekt->getHjemmesideOpgaver();
+			$resultPro = $projekt->getKunRentOpgave(1);
 			
 			$alt = "";
 			$antal = count($resultPro);
 			for($i = 0; $i < $antal; $i++){
-				$resultBil = $billede->hjemmesideImg($i);
+				$resultBil = $billede->getKenRentImg(1);
 				
 				$alt .= $resultBil[$i] . $resultPro[$i];
 			}
@@ -80,12 +87,12 @@
 			$projekt = new projekter();
 			$billede = new Billeder();
 			
-			$resultPro = $projekt->getCSharpOpgaver();
+			$resultPro = $projekt->getKunRentOpgave(2);
 			
 			$alt = "";
 			$antal = count($resultPro);
 			for($i = 0; $i < $antal; $i++){
-				$resultBil = $billede->cSharpImg($i);
+				$resultBil = $billede->getKenRentImg(2);
 				
 				$alt .= $resultBil[$i] . $resultPro[$i];
 			}
@@ -99,12 +106,12 @@
 			$projekt = new projekter();
 			$billede = new Billeder();
 			
-			$resultPro = $projekt->getAllAleneOpgaver();
+			$resultPro = $projekt->getKunRentOpgave(3);
 			
 			$alt = "";
 			$antal = count($resultPro);
 			for($i = 0; $i < $antal; $i++){
-				$resultBil = $billede->getAleneImg($i);
+				$resultBil = $billede->getKenRentImg(3);
 				
 				$alt .= $resultBil[$i] . $resultPro[$i];
 			}
@@ -118,12 +125,12 @@
 			$projekt = new projekter();
 			$billede = new Billeder();
 			
-			$resultPro = $projekt->getAllGruppeOpgaver();
+			$resultPro = $projekt->getKunRentOpgave(4);
 			
 			$alt = "";
 			$antal = count($resultPro);
 			for($i = 0; $i < $antal; $i++){
-				$resultBil = $billede->getGruppeImg($i);
+				$resultBil = $billede->getKenRentImg(4);
 				
 				$alt .= $resultBil[$i] . $resultPro[$i];
 			}
@@ -137,11 +144,11 @@
 			$projekt = new projekter();
 			$billede = new Billeder();
 			
-			$resultPro = $projekt->getProjektFromAleneAndGruppe(3, 2);
+			$resultPro = $projekt->getProjektFromAleneAndGruppe(3, 1);
 			$alt = "";
 			$antal = count($resultPro);
 			for($i = 0; $i < $antal; $i++){
-				$resultBil = $billede->getImgFromAleneAndGruppe(3, 2);
+				$resultBil = $billede->getImgFromAleneAndGruppe(3, 1);
 				
 				$alt .= $resultBil[$i] . $resultPro[$i];
 			}
@@ -155,18 +162,72 @@
 			$projekt = new projekter();
 			$billede = new Billeder();
 			
-			$resultPro = $projekt->getProjektFromAleneAndGruppe(3, 1);
-			var_dump($resultPro);
-			exit();
+			$resultPro = $projekt->getProjektFromAleneAndGruppe(3, 2);
+			
 			$alt = "";
 			$antal = count($resultPro);
 			for($i = 0; $i < $antal; $i++){
-				$resultBil = $billede->getImgFromAleneAndGruppe(3, 1);
+				$resultBil = $billede->getImgFromAleneAndGruppe(3, 2);
 				
 				$alt .= $resultBil[$i] . $resultPro[$i];
 			}
 			$tilsidst = rtrim($alt, "£");
 			echo $tilsidst;
+			break;
+		case "gruppeCSharp":
+			include_once("./classProjekt.php");
+			include_once("./classBilleder.php");
+			
+			$projekt = new projekter();
+			$billede = new Billeder();
+			
+			$resultPro = $projekt->getProjektFromAleneAndGruppe(4, 2);
+			
+			$alt = "";
+			$antal = count($resultPro);
+			for($i = 0; $i < $antal; $i++){
+				$resultBil = $billede->getImgFromAleneAndGruppe(4, 2);
+				
+				$alt .= $resultBil[$i] . $resultPro[$i];
+			}
+			$tilsidst = rtrim($alt, "£");
+			echo $tilsidst;
+			break;
+		case "gruppeHjem":
+			include_once("./classProjekt.php");
+			include_once("./classBilleder.php");
+			
+			$projekt = new projekter();
+			$billede = new Billeder();
+			
+			$resultPro = $projekt->getProjektFromAleneAndGruppe(4, 1);
+			
+			$alt = "";
+			$antal = count($resultPro);
+			for($i = 0; $i < $antal; $i++){
+				$resultBil = $billede->getImgFromAleneAndGruppe(4, 1);
+				
+				$alt .= $resultBil[$i] . $resultPro[$i];
+			}
+			$tilsidst = rtrim($alt, "£");
+			echo $tilsidst;
+			break;
+		case "sprogBox0":
+			include_once("./classProjekt.php");
+			include_once("./classBilleder.php");
+			
+			$projekt = new projekter();
+			$billede = new Billeder();
+			
+			$antalChoice = count($choice);
+			$sqlTekst = "";
+			for($i = 2; $i < $antalChoice; $i++){
+				$sqlTekst .= $choice[i] . ", ";
+			}
+			$tilsidst = rtrim($sqlTekst, ", ");
+			var_dump($tilsidst);
+			exit();
+			$resultPro = $projekt->test($sqlTekst);
 			break;
 	}
 ?>

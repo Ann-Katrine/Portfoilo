@@ -12,284 +12,345 @@ function hjemCSharp(){
 
 var LastId = 0;
 
-// test ------------------------------------
+/* checkbox  i HTML-filen */
+let arrayCheckbox = ["box1", "box2", "underbox0", "underbox1"]; /* GEM DEN! -----------------------*/
 
-/*let arrayId = ["projekter","type", .....];
-let arrayCheckboc = ["box1", "box2", ..., "alene"...];
+/* sprog i HTML-filen */
+let arrayCheckBoxSprog = ["sprogBox0", "sprogBox1", "sprogBox2", "sprogBox3", "sprogBox4", "sprogBox5"];
 
+/* id i HTML-filen */
 
-					 
-if(hejbik(arrayCheckboc[1]).checked === true){
-	hejbik(arrayCheckboc[7]).checked = false;
-}
+let arrayId = ["start", "start1", "alene", "gruppe", "aleneHjem", "aleneCSharp", "gruppeHjem", "gruppeCSharp"];
 
-function hejbik(checbox){
-	return document        .getElementById(checbox);	
-}
+/*let arrayId = ["start", "start1", "alene", "gruppe"];*/
 
+/* område i HTML-filen */
+let arrayOmraade = ["projekter", "type", "sprog"];
 
-for(let i = 0; i < arrayCheckboc.length(); i++){
-	let checkbox = hejbik(arrayCheckboc[i]);
-	
-	for(let j = 0; j < arrayCheckboc.length(); j++){
-		if(arrayCheckboc[i] === arrayCheckboc[j])
-		{
-			continue;	
-		}
-		
-	}
-}*/
+let arraySprog = ["C#", "HTML", "CSS", "PHP", "Javascript", "MySQL"];
 
-// test slut --------------------------------------
-
-let arrayCheckbox = ["box1", "box2", "underbox0", "underbox1", "SprogBox0", "SprogBox1", "SprogBox2", "SprogBox3", "SprogBox4", "SprogBox5"];
-	/* id */
-	let arrayId = ["projekter","type", "sprog", "start", "start1", "alene", "gruppe", "alenehjem", "aleneCSharp", "gruppehjem", "gruppeCSharp"];
+let arrayOprettet = [0, 0, 0, 0, 0, 0, 0, 0];
 
 function getDGEBI(checbox){
 	return document.getElementById(checbox);	
 }
 
 function showAlleOpgaver(id){
-	/*console.log(id);*/
-	
+	// C#
 	if(getDGEBI(arrayCheckbox[1]) && getDGEBI(arrayCheckbox[1]).checked === true && id == "box2")
 	{
-		if(getDGEBI(arrayCheckbox[2]).checked === true){
+		if(getDGEBI(arrayCheckbox[2]).checked === true ){
 			console.log(" c# alene");
+			projekterAndType(id, 1, arrayId[5]); //
 			getDGEBI(arrayCheckbox[0]).checked = false;
-			/*Opgaver("AleneCSharp", "aleneCSharp");
-			clearGruppe.checked = false;
-			clearAleneCSharp.classList.remove("forsvind");
-			clearAleneHjem.className = "forsvind";
-			clearHjemmeside.className = "forsvind";
-			clearGruppe.className = "forsvind";
-			clearAlene.className = "forsvind";*/
+			if(arrayOprettet[5] == 0){
+				Opgaver("AleneCSharp", "aleneCSharp");
+				arrayOprettet[5] = 1;
+			}
 		}
 		else if(getDGEBI(arrayCheckbox[3]).checked === true){
 			console.log(" c# gruppe");
+			projekterAndType(id, 1, arrayId[7]);
 			getDGEBI(arrayCheckbox[0]).checked = false;
+			if(arrayOprettet[7] == 0){
+				Opgaver("gruppeCSharp", "gruppeCSharp");
+				arrayOprettet[7] = 1;
+			}
 		}
 		else{
 			console.log("C#");
+			projekterAndType(id, 0, arrayId[1]);
 			getDGEBI(arrayCheckbox[0]).checked = false;
-			getDGEBI(arrayId[4]).classList.remove("forsvind");
-			getDGEBI(arrayId[3]).className = "forsvind";
 		}
 	}
+	// hjemmeside
 	else if(getDGEBI(arrayCheckbox[0]) && getDGEBI(arrayCheckbox[0]).checked === true && id == "box1")
 	{
 		if(getDGEBI(arrayCheckbox[2]).checked === true ){
 			console.log(" hjemmeside alene");
+			projekterAndType(id, 1, arrayId[4]);
 			getDGEBI(arrayCheckbox[1]).checked = false;
-			/*Opgaver("AleneHjem", "aleneHjem");
-			clearGruppe.checked = false;
-			clearAleneHjem.classList.remove("forsvind");
-			clearHjemmeside.className = "forsvind";
-			clearGruppe.className = "forsvind";
-			clearAlene.className = "forsvind";*/
+			if(arrayOprettet[4] == 0){
+				Opgaver("AleneHjem", "aleneHjem");
+				arrayOprettet[4] = 1;
+			}
 		}
 		else if(getDGEBI(arrayCheckbox[3]).checked === true){
 			console.log(" hjemmside gruppe");
 			getDGEBI(arrayCheckbox[1]).checked = false;
+			projekterAndType(id, 1, arrayId[6]);
+			if(arrayOprettet[6] == 0){
+				Opgaver("gruppeHjem", "gruppeHjem");
+				arrayOprettet[6] = 1;
+			}
+		
 		}
 		else{
 			console.log("hjemmeside");
 			getDGEBI(arrayCheckbox[1]).checked = false;
-			getDGEBI(arrayId[3]).classList.remove("forsvind");
-			getDGEBI(arrayId[4]).className = "forsvind";
+			projekterAndType(id, 0, arrayId[0]);
 		}
 	}
+	//alene
 	else if(getDGEBI(arrayCheckbox[2]) && getDGEBI(arrayCheckbox[2]).checked === true && id == "underbox0")
 	{
 		if(getDGEBI(arrayCheckbox[1]).checked === true)
 		{
 			console.log("alene c#");
 			getDGEBI(arrayCheckbox[3]).checked = false;
-			getDGEBI(arrayId[4]).classList.remove("forsvind");
-			getDGEBI(arrayId[3]).className = "forsvind";
+			projekterAndType(id, 1, arrayId[5]);
+			if(arrayOprettet[5] == 0){
+				Opgaver("AleneCSharp", "aleneCSharp");
+				arrayOprettet[5] = 1;
+			}
 		}
 		else if(getDGEBI(arrayCheckbox[0]).checked === true)
 		{
 			console.log("alene html");
 			getDGEBI(arrayCheckbox[3]).checked = false;
-			getDGEBI(arrayId[3]).classList.remove("forsvind");
-			getDGEBI(arrayId[4]).className = "forsvind";
+			projekterAndType(id, 1, arrayId[4]);
+			if(arrayOprettet[4] == 0){
+				Opgaver("AleneHjem", "aleneHjem");
+				arrayOprettet[4] = 1;
+			}
 		}
 		else
 		{
 			console.log("alene");
-			Opgaver("AlleOpgaverAlene", "alene");
+			projekterAndType(id, 1, arrayId[2]);
 			getDGEBI(arrayCheckbox[3]).checked = false;
-			getDGEBI(arrayId[1]).classList.remove("forsvind");
-			getDGEBI(arrayId[5]).classList.remove("forsvind");
-			getDGEBI(arrayId[0]).className = "forsvind";
-			getDGEBI(arrayId[2]).className = "forsvind";
-			getDGEBI(arrayId[6]).className = "forsvind";
+			if(arrayOprettet[2] == 0){
+				Opgaver("AlleOpgaverAlene", "alene");
+				arrayOprettet[2] = 1;
+			}
 		}
 	}
+	// gruppe
 	else if(getDGEBI(arrayCheckbox[3]) && getDGEBI(arrayCheckbox[3]).checked === true && id == "underbox1")
 	{
 		if(getDGEBI(arrayCheckbox[0]).checked === true)
 		{
 		    console.log("gruppe c#");
 			getDGEBI(arrayCheckbox[2]).checked = false;
+			projekterAndType(id, 1, arrayId[7]);
 		}
 		else if(getDGEBI(arrayCheckbox[1]).checked === true){
 			console.log("gruppe html");
 			getDGEBI(arrayCheckbox[2]).checked = false;
+			projekterAndType(id, 1, arrayId[6]);
 		}
 		else
 		{
 			console.log("gruppe");
-			Opgaver("AlleOpgaverGruppe", "gruppe");
 			getDGEBI(arrayCheckbox[2]).checked = false;
-			getDGEBI(arrayId[1]).classList.remove("forsvind");
-			getDGEBI(arrayId[6]).classList.remove("forsvind");
-			getDGEBI(arrayId[0]).className = "forsvind";
-			getDGEBI(arrayId[2]).className = "forsvind";
-			getDGEBI(arrayId[5]).className = "forsvind";
+			projekterAndType(id, 1, arrayId[3]);
+			if(arrayOprettet[3] == 0){
+				Opgaver("AlleOpgaverGruppe", "gruppe");
+				arrayOprettet[3] = 1;
+			}
 		}
 	} 
+	// C#
 	else if(getDGEBI(arrayCheckbox[1]) && getDGEBI(arrayCheckbox[1]).checked === true && LastId == "box2")
 	{
 		if(getDGEBI(arrayCheckbox[2]).checked === true){
 			console.log(" c# alene");
 			getDGEBI(arrayCheckbox[0]).checked = false;
-			/*Opgaver("AleneCSharp", "aleneCSharp");
-			clearGruppe.checked = false;
-			clearAleneCSharp.classList.remove("forsvind");
-			clearAleneHjem.className = "forsvind";
-			clearHjemmeside.className = "forsvind";
-			clearGruppe.className = "forsvind";
-			clearAlene.className = "forsvind";*/
+			projekterAndType(id, 1, arrayId[5]);
 		}
 		else if(getDGEBI(arrayCheckbox[3]).checked === true){
 			console.log(" c# gruppe");
 			getDGEBI(arrayCheckbox[0]).checked = false;
+			projekterAndType(id, 1, arrayId[7]);
 		}
 		else{
 			console.log("C#");
 			getDGEBI(arrayCheckbox[0]).checked = false;
-			getDGEBI(arrayId[4]).classList.remove("forsvind");
-			getDGEBI(arrayId[3]).className = "forsvind";
+			projekterAndType(id, 0, arrayId[1]);
 		}
 	}
+	// hjemmside
 	else if(getDGEBI(arrayCheckbox[0]) && getDGEBI(arrayCheckbox[0]).checked === true && LastId == "box1")
 	{
 		if(getDGEBI(arrayCheckbox[2]).checked === true ){
 			console.log(" hjemmeside alene");
 			getDGEBI(arrayCheckbox[1]).checked = false;
-			/*Opgaver("AleneHjem", "aleneHjem");
-			clearGruppe.checked = false;
-			clearAleneHjem.classList.remove("forsvind");
-			clearHjemmeside.className = "forsvind";
-			clearGruppe.className = "forsvind";
-			clearAlene.className = "forsvind";*/
+			projekterAndType(id, 1, arrayId[4]);
 		}
 		else if(getDGEBI(arrayCheckbox[3]).checked === true){
 			console.log(" hjemmside gruppe");
 			getDGEBI(arrayCheckbox[1]).checked = false;
+			projekterAndType(id, 1, arrayId[6]);
 		}
 		else{
 			console.log("hjemmeside");
 			getDGEBI(arrayCheckbox[1]).checked = false;
-			getDGEBI(arrayId[3]).classList.remove("forsvind");
-			getDGEBI(arrayId[4]).className = "forsvind";
+			projekterAndType(id, 0, arrayId[0]);
 		}
 	}
+	// alene
 	else if(getDGEBI(arrayCheckbox[2]) && getDGEBI(arrayCheckbox[2]).checked === true && LastId == "underbox0")
 	{
 		if(getDGEBI(arrayCheckbox[1]).checked === true)
 		{
 			console.log("alene c#");
 			getDGEBI(arrayCheckbox[3]).checked = false;
-			getDGEBI(arrayId[4]).classList.remove("forsvind");
-			getDGEBI(arrayId[3]).className = "forsvind";
+			projekterAndType(id, 1, arrayId[5]);
+			if(arrayOprettet[5] == 0){
+				Opgaver("AleneCSharp", "aleneCSharp");
+				arrayOprettet[5] = 1;
+			}
 		}
 		else if(getDGEBI(arrayCheckbox[0]).checked === true)
 		{
 			console.log("alene html");
 			getDGEBI(arrayCheckbox[3]).checked = false;
-			getDGEBI(arrayId[3]).classList.remove("forsvind");
-			getDGEBI(arrayId[4]).className = "forsvind";
+			projekterAndType(id, 1, arrayId[4]);
+			if(arrayOprettet[4] == 0){
+				Opgaver("AleneHjem", "aleneHjem");
+				arrayOprettet[4] = 1;
+			}
 		}
 		else
 		{
 			console.log("alene");
-			Opgaver("AlleOpgaverAlene", "alene");
 			getDGEBI(arrayCheckbox[3]).checked = false;
-			getDGEBI(arrayId[1]).classList.remove("forsvind");
-			getDGEBI(arrayId[5]).classList.remove("forsvind");
-			getDGEBI(arrayId[0]).className = "forsvind";
-			getDGEBI(arrayId[2]).className = "forsvind";
-			getDGEBI(arrayId[6]).className = "forsvind";
+			projekterAndType(id, 1, arrayId[2]);
+			if(arrayOprettet[2] == 0){
+				Opgaver("AlleOpgaverAlene", "alene");
+				arrayOprettet[2] = 1;
+			}
 		}
 	}
+	// gruppe
 	else if(getDGEBI(arrayCheckbox[3]) && getDGEBI(arrayCheckbox[3]).checked === true && LastId == "underbox1")
 	{
 		if(getDGEBI(arrayCheckbox[0]).checked === true)
 		{
 		   console.log("gruppe c#")
 			getDGEBI(arrayCheckbox[2]).checked = false;
+			projekterAndType(id, 1, arrayId[7]);
 		}
 		else if(getDGEBI(arrayCheckbox[1]).checked === true){
 			console.log("gruppe html")
 			getDGEBI(arrayCheckbox[2]).checked = false;
+			projekterAndType(id, 1, arrayId[6]);
 		}
 		else
 		{
 			console.log("gruppe");
-			Opgaver("AlleOpgaverGruppe", "gruppe");
 			getDGEBI(arrayCheckbox[2]).checked = false;
-			getDGEBI(arrayId[1]).classList.remove("forsvind");
-			getDGEBI(arrayId[6]).classList.remove("forsvind");
-			getDGEBI(arrayId[0]).className = "forsvind";
-			getDGEBI(arrayId[2]).className = "forsvind";
-			getDGEBI(arrayId[5]).className = "forsvind";
+			projekterAndType(id, 1, arrayId[3]);
+			if(arrayOprettet[3] == 0){
+				Opgaver("AlleOpgaverGruppe", "gruppe");
+				arrayOprettet[3] = 1;
+			}
 		}
 	}
 	else 
 	{
+		programmeringSprog(id);
+		// hjemmeside
 		if(getDGEBI(arrayCheckbox[0]) && getDGEBI(arrayCheckbox[0]).checked && LastId == "underbox0" || getDGEBI(arrayCheckbox[0]) && getDGEBI(arrayCheckbox[0]).checked && LastId == "underbox1" ){
 			console.log("kun hjemmeside");
 			getDGEBI(arrayCheckbox[1]).checked = false;
+			projekterAndType(id, 0, arrayId(0));
 		}
+		// C#
 		else if(getDGEBI(arrayCheckbox[1]) && getDGEBI(arrayCheckbox[1]).checked && LastId == "underbox0" || getDGEBI(arrayCheckbox[1]) && getDGEBI(arrayCheckbox[1]).checked && LastId == "underbox1"){
 			console.log("kun C#");
 			getDGEBI(arrayCheckbox[0]).checked = false;
+			projekterAndType(id, 0, arrayId(1));
 		}
+		// alene
 		else if(getDGEBI(arrayCheckbox[2]) && getDGEBI(arrayCheckbox[2]).checked && LastId == "box1" || getDGEBI(arrayCheckbox[2]) && getDGEBI(arrayCheckbox[2]).checked && LastId == "box2"){
 			console.log("kun alene");
 			getDGEBI(arrayCheckbox[3]).checked = false;
+			projekterAndType(id, 1, arrayId[2]);
+			if(arrayOprettet[2] == 0){
+				Opgaver("AlleOpgaverAlene", "alene");
+				arrayOprettet[2] = 1;
+			}
 		}
+		// gruppe
 		else if(getDGEBI(arrayCheckbox[3]) && getDGEBI(arrayCheckbox[3]).checked && LastId == "box1" || getDGEBI(arrayCheckbox[3]) && getDGEBI(arrayCheckbox[3]).checked && LastId == "box2"){
 			console.log("kun Gruppe");
 			getDGEBI(arrayCheckbox[2]).checked = false;
+			projekterAndType(id, 1, arrayId[3]);
+			if(arrayOprettet[3] == 0){
+				Opgaver("AlleOpgaverGruppe", "gruppe");
+				arrayOprettet[3] = 1;
+			}
 		}
 		else{
+			
 			console.log("start");
-			getDGEBI(arrayId[3]).classList.remove("forsvind");
-			getDGEBI(arrayId[4]).classList.remove("forsvind");
+			/* find mulig fix */
 			getDGEBI(arrayId[0]).classList.remove("forsvind");
-			getDGEBI(arrayId[1]).className = "forsvind"; /* husk */	
+			getDGEBI(arrayId[1]).classList.remove("forsvind");
+			getDGEBI(arrayOmraade[0]).classList.remove("forsvind");
+			getDGEBI(arrayOmraade[1]).className = "forsvind";
+			getDGEBI(arrayOmraade[2]).className = "forsvind";
 		}
 	}
-	// sprogbox
-	/*if(spCSharp && spCSharp.checked === true)
-	{
-		console.log("sprog c#");
-		html.checked = false;
-	}
-	if(html && html.checked === true)
-	{
-		console.log("sprog html");	
-		spCSharp.checked = false;
-	}*/
 	
 	LastId = id;
 	console.log(LastId + " = lastid");
 	console.log("_____________");
+}
+
+/*
+checkbox: er en værdi fra id
+omraade: er et tal fr 0 til 2, der er lig med hvilken værdi i arrayOmraade
+id: er en værdi fra arrayId
+*/ // hjælp til værdi'erne
+function projekterAndType(checkbox, omraade, id){
+	// sæt forsvind og fjern forsvind
+	let antalId = arrayId.length;
+	for(let j = 0; j < antalId; j++){
+		if(arrayId[j] == id){
+			console.log(arrayId[j] + " og " + arrayOmraade[omraade]);
+			getDGEBI(arrayId[j]).classList.remove("forsvind");
+			getDGEBI(arrayOmraade[omraade]).classList.remove("forsvind");
+		}
+		else
+		{
+			getDGEBI(arrayId[j]).className = "forsvind";
+		}
+	}
+}
+
+let arrayProSprog = [];
+let arrayProSprogTilstand = [false, false, false, false, false, false];
+
+let arraySprogId = ["sprogBox0", "sprogBox1", "sprogBox2", "sprogBox3", "sprogBox4", "sprogBox5"];
+
+function programmeringSprog(id){
+	let antalCheckbox = arrayCheckBoxSprog.length;
+	for(let i = 0; i < antalCheckbox; i++){
+		if(getDGEBI(arrayCheckBoxSprog[i]) && getDGEBI(arrayCheckBoxSprog[i]).checked === true && id == arrayCheckBoxSprog[i]){
+			if(arrayProSprogTilstand[i] == false)
+			{
+				arrayProSprog.push(arraySprog[i]);
+				arrayProSprogTilstand[i] = true;
+				let antalOpret = arrayProSprog.length;
+				let sprog = "&";
+				for(let j = 0; j < antalOpret; j++){
+					sprog = sprog + arrayCheckbox[j] + "€";
+				}
+				sprog = sprog.substring(0, sprog.length-1);
+				getDGEBI(arraySprogId[i]).removeChild(getDGEBI("Temp"));
+				Opgaver(arraySprogId[i] + sprog, arraySprogId[i]);
+				console.log(arrayProSprog);
+			}
+		}
+		else if(LastId == arrayCheckBoxSprog[i] && getDGEBI(arrayCheckBoxSprog[i]).checked === false){
+			delete arrayProSprog[i];
+			arrayProSprogTilstand[i] = false;
+			arrayProSprog = arrayProSprog.filter(function() { return true });
+			
+		}
+	}	
 }
 
 function Opgaver(projekt, plads){

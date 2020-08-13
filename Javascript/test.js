@@ -59,7 +59,7 @@ function sidebar(){
 function hvilketProjekt(){
 	$.get("PHP/index.php?choice=overskiftType", function(data){
 		let array = data.split("£");
-		console.log(array);
+		//console.log(array);
 		
 		let li = document.createElement("li");
 		li.className = "nav-item";
@@ -154,8 +154,8 @@ function HvilketSprog(){
 			
 			let input = document.createElement("input");
 			input.setAttribute("type", "checkbox");
-			input.setAttribute("id", "SprogBox" +tal);
-			input.setAttribute("onclick", "showAlleOpgaver('SprogBox" + tal + "')");
+			input.setAttribute("id", "sprogBox" +tal);
+			input.setAttribute("onclick", "showAlleOpgaver('sprogBox" + tal + "')");
 			li.appendChild(input);
 			
 			let a = document.createElement("a");
