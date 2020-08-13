@@ -1,0 +1,128 @@
+array.forEach(function(index){
+                let temp = index.split("'");
+                
+                // gør for at der kun er 3 projekter på linje
+                if((tal % 3) == 0){
+                    y++;
+                    console.log("kommer her til");
+                    let div1 = document.createElement("div");
+                    div1.setAttribute("id", "test" + y);
+                    div1.className = "clearfix";
+                    newDiv.appendChild(div1);
+                }
+                
+                // hvis projekt er ligemed kun3Opgaver
+                if(projekt == "kun3Opgaver"){
+                    let div = document.createElement("div");
+                    div.className = "flex-item color1";
+                    newDiv.appendChild(div);
+
+                    addTheRestTooOpgaver(temp, div);
+                }
+                // hvis det er alle andre
+                else{
+                    console.log(tal);
+                    let div = document.createElement("div");
+                    div.setAttribute("id", "slet");
+                    div.className = "flex-item slet";
+                    let tempp =  document.getElementById("test" + y);
+                    tempp.appendChild(div);
+                    
+                    // hvis tallet er 1
+                    if(tallet == 1){
+                        console.log("her");
+                        if(tal == tallet){
+                            console.log("to væk");
+                            div.className = "slet test";
+
+                        }
+                        else if(tal == tallet+1){
+                            console.log("prøver");
+                            div.className = "slet test";
+                        }
+                        else{
+                            addTheRestTooOpgaver(temp, div);
+                        }
+                    }
+                    // hvis tallet er 2
+                    else if(tallet == 2){
+                        console.log("nope");
+                        if(tal == tallet){
+                            console.log("en væk");
+                            div.className = "slet test";
+                        }
+                        else{
+                            addTheRestTooOpgaver(temp, div);
+                        }
+                    }
+                    else{
+                        addTheRestTooOpgaver(temp, div);
+                    }
+                }
+                tal++;
+            });
+            
+            
+            
+            /****************************************************************************************************************************/
+            
+let temp = index.split("'");
+                
+                // gør for at der kun er 3 projekter på linje
+                if((tal % 3) == 0){
+                    y++;
+                    console.log("kommer her til");
+                    let div1 = document.createElement("div");
+                    div1.setAttribute("id", "test" + y);
+                    div1.className = "clearfix";
+                    newDiv.appendChild(div1);
+                }
+                
+                // hvis projekt er ligemed kun3Opgaver
+                if(projekt == "kun3Opgaver"){
+                    let div = document.createElement("div");
+                    div.className = "flex-item color1";
+                    newDiv.appendChild(div);
+
+                    addTheRestTooOpgaver(temp, div);
+                }
+                // hvis det er alle andre
+                else{
+                    console.log(tal);
+                    let div = document.createElement("div");
+                    div.setAttribute("id", "slet");
+                    div.className = "flex-item slet";
+                    let tempp =  document.getElementById("test" + y);
+                    tempp.appendChild(div);
+                    
+                    // hvis tallet er 1
+                    if(tallet == 1){
+                        console.log(tal + " tal");
+                        if(tal == tallet){
+                            console.log("to væk");
+                            div.className = "slet test";
+
+                        }
+                        else if(tal == tallet){
+                            div.className = "slet test";
+                        }
+                        else{
+                            addTheRestTooOpgaver(temp, div);
+                        }
+                    }
+                    // hvis tallet er 2
+                    else if(tallet == 2){
+                        console.log("nope");
+                        if(tal == tallet){
+                            console.log("en væk");
+                            div.className = "slet test";
+                        }
+                        else{
+                            addTheRestTooOpgaver(temp, div);
+                        }
+                    }
+                    else{
+                        addTheRestTooOpgaver(temp, div);
+                    }
+                }
+                tal++;

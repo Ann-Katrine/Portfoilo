@@ -5,3 +5,7 @@
 **/PHP/class*.php
 **/Billeder/*
 **/version 1/*
+**/PHP/validering.php
+**/PHP/CRUD.php
+**/administration.html
+**/indexAdmin.php

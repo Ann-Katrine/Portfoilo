@@ -1,0 +1,76 @@
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Style the body */
+    body {
+      font-family: Arial;
+      margin: 0;
+    }
+
+    p{
+        margin-block-start: 0;
+        margin-block-end: 0;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+
+/*******************************************************************/
+/*                            navbar                               */
+/*******************************************************************/ 
+    nav{
+        z-index: 1
+    }
+
+    .teskt{
+        text-align: center; /* betyder at de nu bliver pænt sæt ved siden af hinanden ikke har en fast plads*/
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+
+        /*background-color: #000000;*/
+        list-style-type: none;
+        overflow: hidden;
+      }
+
+      li {
+        display: block; /* den bruges når man er på IE6-7 for der virker inline-block ikke */
+      }
+
+      li a {
+    /*    display:inline-block;  gør at linkene ikke begynder at sætte sig under hinanden */
+        padding: 10px;
+        text-decoration: none;
+        color: white;
+      }
+
+      li a:hover:not(.active) {
+        /*background-color: #111;*/
+      }
+
+      .active {
+        background-color:  #0cd9f5;
+      }
+
+/*******************************************************************/
+/*                           flexbox                               */
+/*******************************************************************/ 
+    /* Column container */
+    .row1 {  
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .side1 {
+      flex: 20%;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+
+    .main1 {
+      flex: 80%;
+      background-color: white;
+      padding: 20px;
+    }

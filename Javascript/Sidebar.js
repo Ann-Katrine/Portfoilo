@@ -1,7 +1,13 @@
+/*********************************************************/
+/*     Til pilen på opgavesiden bliver vist/gemt         */
+/*********************************************************/
 function toggleSidebar() {
 	$(".side1").toggleClass("hide");
 }
 
+/***************************************************/
+/*                til at glemme sidebar            */
+/***************************************************/
 function hide(){
 	if($(".side1").hasClass("hide"))
 	{
@@ -13,142 +19,100 @@ function hide(){
 	   $(".hide_and_seek").hide();
 	   $(".hide_and_seek1").show();
 	}
-	
-	
 }
 
-function Choice() {
-	var checkbox2 = document.getElementById("box1");
+/*******************************************************************/
+/*       Til at hjælpe med hvilken overskrift de skal have         */
+/*******************************************************************/
+let arrayOverskrift = ["Hvilket projekt", "Hvilket projekt type", "Hvilket sprog"];
+
+/***************************************************/
+/*                  Til at lave sidebar            */
+/***************************************************/
+function sidebar(){
+	let Newline = document.createElement("ul");
+	Newline.className = "nav flex-column";
+	let Temp = document.getElementById("sidebar");
+	Temp.appendChild(Newline);	
+
+	let div = document.createElement("div");
+	div.setAttribute("id", "hvilkePro");
+	Newline.appendChild(div);
 	
-	//projekt - mine projekter
-	if(checkbox2.checked === true)
-	{
-		/*alert("virker");*/
-		$(".123").hide();
-		
-		$.get("PHP/Sidebar.php?opg=mine_opgaver", function(data){
-			var $array = data.split(":");
-			var x = 0;
-			var y = 0;
-			$array.forEach(function(index)
-			{
-				var $temp = index.split("'");
-				if((x % 3) == 0)
-				{
-					y++;
-					NewLine = document.createElement("div");
-					NewLine.setAttribute("id", "divflex"+x);
-					var Temp = document.getElementById("pro");
-					Temp.appendChild(NewLine);
-					NewDiv = document.createElement("div");
-					NewDiv.className = "clearfix";
-					NewDiv.setAttribute("id", "divrow"+y);
-					NewLine.appendChild(NewDiv);
-				}
-
-				/* Må ikke slettet eller skal du give en eller anden den størreste is du kan finde inde for 1 km */
-				if($temp[0] === "http")
-					return true;
-
-				var div = document.createElement("div");
-				div.className = "flex-item";
-				var temp =  document.getElementById("divrow"+(y));
-				temp.appendChild(div);
-
-				var a = document.createElement("a");
-				a.setAttribute("href", $temp[0]);
-				div.appendChild(a);			
-
-				var img = document.createElement("img");
-				img.className = "img";
-				img.setAttribute("src", $temp[1]);
-				img.setAttribute("alt", "en opgave" +x);
-				a.appendChild(img);
-
-				var p1 = document.createElement("p");
-				var node = document.createTextNode($temp[2]);
-				p1.appendChild(node);
-				div.appendChild(p1);
-
-				var p2 = document.createElement("p");
-				var node = document.createTextNode($temp[3]);
-				p2.appendChild(node);
-				div.appendChild(p2);
-				x++;
-			});
-		});
-	}
-	else 
-	{
-		$(".hide_alt1").html("");
-		$(".123").show();
-	}	
+	opretCheckbox("overskiftType", "hvilkePro", arrayOverskrift[0] , "box");
+	
+	let li = document.createElement("li");
+	li.className = "nav-item";
+	Newline.appendChild(li);
+	
+	let linje = document.createElement("hr");
+	li.appendChild(linje);
+	
+	let div1 = document.createElement("div");
+	div1.setAttribute("id", "hvilkeProType");
+	Newline.appendChild(div1);
+	
+	opretCheckbox("projektType", "hvilkeProType", arrayOverskrift[1], "underbox");
+	
+	let li1 = document.createElement("li");
+	li1.className = "nav-item";
+	Newline.appendChild(li1);
+	
+	let linje1 = document.createElement("hr");
+	li1.appendChild(linje1);
+	
+	let div2 = document.createElement("div");
+	div2.setAttribute("id", "HvilkeSprog");
+	Newline.appendChild(div2);
+	
+	opretCheckbox("Sprog", "HvilkeSprog", arrayOverskrift[2], "sprogBox");
 }
 
-function Choice1(){
-	var checkbox1 = document.getElementById("box");
-	
-	// projekt - skal projekter
-	if(checkbox1.checked === true)
-	{
-		/*alert("virker");*/
-		$(".123").hide();
+let arrayAntal = [];
+let antalArray = 0;
+
+
+/***************************************************/
+/*             Til at oprette tjekboksene          */
+/***************************************************/
+function opretCheckbox(routing, id, overskriftText, showOpgave){
+	$.get("PHP/index.php?choice=" + routing, function(data){ // her
+		let array = data.split("£");
+		//console.log(array);
 		
-		$.get("PHP/Sidebar.php?opg=skal_opgaver", function(data){
-			var $array = data.split(":");
-			var x = 0;
-			var y = 0;
-			$array.forEach(function(index)
-			{
-				var $temp = index.split("'");
-				if((x % 3) == 0)
-				{
-					y++;
-					NewLine = document.createElement("div");
-					NewLine.setAttribute("id", "divflex"+x);
-					var Temp = document.getElementById("projekter");
-					Temp.appendChild(NewLine);
-					NewDiv = document.createElement("div");
-					NewDiv.className = "clearfix";
-					NewDiv.setAttribute("id", "divrow"+y);
-					NewLine.appendChild(NewDiv);
-				}
-
-				/* Må ikke slettet eller skal du give en eller anden den størreste is du kan finde inde for 1 km */
-				if($temp[0] === "http")
-					return true;
-
-				var div = document.createElement("div");
-				div.className = "flex-item";
-				var temp =  document.getElementById("divrow"+(y));
-				temp.appendChild(div);
-
-				var a = document.createElement("a");
-				a.setAttribute("href", $temp[0]);
-				div.appendChild(a);			
-
-				var img = document.createElement("img");
-				img.className = "img";
-				img.setAttribute("src", $temp[1]);
-				img.setAttribute("alt", "en opgave" +x);
-				a.appendChild(img);
-
-				var p1 = document.createElement("p");
-				var node = document.createTextNode($temp[2]);
-				p1.appendChild(node);
-				div.appendChild(p1);
-
-				var p2 = document.createElement("p");
-				var node = document.createTextNode($temp[3]);
-				p2.appendChild(node);
-				div.appendChild(p2);
-				x++;
-			});
+		let li = document.createElement("li");
+		li.className = "nav-item";
+		let Temp1 = document.getElementById(id); // her
+		Temp1.appendChild(li);
+		
+		let p = document.createElement("p");
+		p.className = "tekst";
+        p.className = "testing tekst";
+		let overskrift = document.createTextNode(overskriftText); // her
+		p.appendChild(overskrift);
+		li.appendChild(p);
+        
+		let tal = 0;
+       
+		array.forEach(function(index){
+			let value = index.split("'");
+			
+			let input = document.createElement("input");
+			input.setAttribute("type", "checkbox");
+			input.setAttribute("id", showOpgave +tal);
+			input.setAttribute("onclick", "showAlleOpgaver('" + showOpgave +  tal + "')"); // her
+            input.className = "testing";
+			li.appendChild(input);
+			
+			let a = document.createElement("a");
+			a.className = "maginMagic";
+			let tekst = document.createTextNode(value[0])
+			a.appendChild(tekst);
+			li.appendChild(a);
+			
+			let pause = document.createElement("br");
+			li.appendChild(pause);
+			tal++;
 		});
-	}
-	else
-	{
-		$(".hide_alt").html("");
-		$(".123").show();
-	}
+	});
 }
