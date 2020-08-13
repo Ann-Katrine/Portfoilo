@@ -1,0 +1,254 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+p{
+	margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.forsvind{
+	display: none;
+}
+
+/* ------------------------------------ */
+/* text size */
+/* ------------------------------------ */
+.overskrift {
+	font-size: 30px;
+}
+
+.tekst {
+	font-size: 18px;
+}
+
+.maginMagic{
+	padding: 0;
+}
+
+.dato{
+	font-size: 14px;
+}
+
+.mellemrum{
+	margin-bottom: 10px;
+}
+
+/* ------------------------------------ */
+/* background */
+.rainbow {
+	background-image: linear-gradient(to left, #33ccff -44%, #ff99cc 91%);
+}
+
+/*******************************************************************************************************************/
+/*                                                         navbar                                                  */
+/*******************************************************************************************************************/ 
+nav{
+	z-index: 1
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    text-align: center; /* betyder at de nu bliver pænt sæt ved siden af hinanden ikke har en fast plads*/
+    /*background-color: #000000;*/
+    list-style-type: none;
+    overflow: hidden;
+  }
+  
+  li {
+    display: inline; /* den bruges når man er på IE6-7 for der virker inline-block ikke */
+  }
+  
+  li a {
+    display:inline-block; /* gør at linkene ikke begynder at sætte sig under hinanden */
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+  }
+  
+  li a:hover:not(.active) {
+    /*background-color: #111;*/
+  }
+  
+  .active {
+    background-color:  #0cd9f5;
+  }
+
+/***********************************/
+/*        make navbar sticky       */
+/***********************************/
+  .content{
+    padding: 0;
+  }
+
+  .sticky{
+    position: fixed;
+    top: 0;
+    width: 100%;
+	z-index: 1;
+  }
+
+/* gør at selve top rykker når navbaren bliver sticky*/
+	.sticky_hojde{
+		padding-top: 42px;
+	}
+
+
+/* ------------------------------------ */
+/* make many sits */
+/* ------------------------------------ */
+
+/* Column container */
+.row1 {  
+	display: flex;
+	flex-wrap: wrap;
+}
+
+/* index.html */
+.side {
+  flex: 25%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+.main {
+  flex: 75%;
+  background-color: white;
+  padding: 20px;
+}
+
+/* ------------------------------------ */
+/* text type */
+.tekst_type {
+	font-family: "Times New Roman", Times, serif;
+}
+
+/* ------------------------------------ */
+/* flexbox */
+/* ------------------------------------ */
+
+/* de andre html sits */
+.clearfix {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+
+	-webkit-flex-flow: row wrap;
+	justify-content: space-around;
+}
+
+.img {
+	height: 200px;
+	width: 100%;
+}
+
+.flex-item {
+	background-color: #f1f1f1;
+	padding: 13px; /* mellemrum mellem box */
+	width: 300px; /* længde */
+	height: 460px; /* højde */
+	margin-top: 15px; /* højden fra top til box*/
+}
+
+
+.color1:nth-child(1) {background-image: linear-gradient(to top, #ffffff,  #ff99cc);}
+.color1:nth-child(2) {background-image:  linear-gradient(to top, #ffffff, #cc66ff);}
+.color1:nth-child(3) {background-image:  linear-gradient(to top, #ffffff, #33ccff);}
+
+/* kontakt.html */
+.info {
+	max-width: 1400px;
+	margin: 40px auto 0 auto;
+}
+
+.kontakt {
+	padding: 20px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+	flex-basis: 45%;
+}
+
+@media (min-width: 676px){
+	.info {
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		justify-content: space-around;
+	}
+}
+
+.kontakt:nth-child(1) {background-image: linear-gradient(to top, #ffffff,  #ff99cc );}
+.kontakt:nth-child(2) {background-image: linear-gradient(to top,  #ffffff, #33ccff);}
+
+/* ------------------------------------ */
+/* maps */
+/* ------------------------------------ */
+
+.mapouter {
+	position:relative;
+	text-align:right;
+	height:100%;
+	width:100%;
+}
+
+.gmap_canvas {
+	overflow:hidden;
+	background:none!important;
+	height:100%;
+	width:100%;
+}
+
+.iframe {
+	width: 100%;
+	height: 100%;
+}
+
+/* ------------------------------------- */
+/* Ikon */
+/* ------------------------------------- */
+
+.ikon {
+	width: 25px;
+	height: 25px;
+}
+
+.a-color {color: #9900cc;}
+.a-color1 {color: #999966;}
+
+/* ------------------------------------- */
+/* sidebar */
+/* ------------------------------------- */
+
+.hide {
+	display: none;
+}
+
+.side1 {
+  flex: 20%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+.main1 {
+  flex: 80%;
+  background-color: white;
+  padding: 20px;
+}
+

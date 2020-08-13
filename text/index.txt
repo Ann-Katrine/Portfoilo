@@ -1,0 +1,31 @@
+<h2>Kompetencer inde for programmering</h2>
+<p>- PHP <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon>  
+<br> 
+- HTML <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon>  
+<br> 
+- CSS <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon name="star-half"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon> 
+<br> 
+- Javascript <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon> 
+<br> 
+- SQL (ms & my) <ion-icon name="star"></ion-icon> <ion-icon name="star"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon> 
+<br> 
+- C# <ion-icon name="star"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon>
+<br>
+- C++ <ion-icon name="star-half"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon>
+<br>
+- OOP <ion-icon name="star-half"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon> <ion-icon name="star-outline"></ion-icon> </p>
+
+<h2 class="mixcolor">Nyeste Opgaver</h2>
+<div id="3opgaver"></div>
+
+<h2>Tidligere Ansættelser</h2>
+<p>2015-2016: Praktik i SuperBrugsen, Søndersø <br>
+2015-2016: Praktik i J-IT, Søndersø <br> 2015-2016: Praktik i Melgaard, ved it-afdelingen, som hjælper ved min onkel</p>
+
+<h2>Uddannelse</h2>
+<p> 2005-2012: Gik på Bratrolleborg skole i Korinth fra 0-6 klasse <br>
+2012-2015: Gik på Sundskolen i Faaborg fra 7-9 klasse <br>
+2015-2016: Gik på Søndersø skole i 10 klasse som skolepraktik <br>
+2016-2017: Gik på Syddansk Erhvervsskole Grundforløb 1 <br>
+2017-2017: Gik på Syddansk Erhvervsskole grundforløb 2 <br> 
+2017- : Er i gang Syddansk Erhvervsskole EUX Datateknikker med speciale i programmering</p> 
