@@ -8,17 +8,6 @@ body {
   margin: 0;
 }
 
-p{
-	margin-block-start: 0;
-    margin-block-end: 0;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-}
-
-.forsvind{
-	display: none;
-}
-
 /* ------------------------------------ */
 /* text size */
 /* ------------------------------------ */
@@ -28,18 +17,6 @@ p{
 
 .tekst {
 	font-size: 18px;
-}
-
-.maginMagic{
-	padding: 0;
-}
-
-.dato{
-	font-size: 14px;
-}
-
-.mellemrum{
-	margin-bottom: 10px;
 }
 
 /* ------------------------------------ */
