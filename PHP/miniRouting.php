@@ -3,7 +3,6 @@
 	ini_set('display_errors', 1);
     
     class miniRouting{
-         
         /*********************************************************************/
         /*    Mini routing til værdierne i url'en/uri'en bliver lavet om     */
         /*********************************************************************/
@@ -19,11 +18,16 @@
             if($tekst == "alene,hjemmeside" || $tekst == "hjemmeside,alene"){
                 $tekst = "3,1";
             }
-            else if($tekst == "alene,C#" || $tekst == "C#,alene"){
+            else if($tekst == "alene,c#" || $tekst == "c#,alene"){
                 $tekst = "3,2";
             }
-            /*var_dump($tekst);
-            exit();*/
+            else if($tekst == "gruppe,c#" || $tekst == "c#,gruppe"){
+                $tekst = "4,2";
+            }
+            else if($tekst == "gruppe,hjemmeside" || $tekst == "hjemmeside,gruppe"){
+                $tekst = "4,1";
+            }
+            
             // Kommer hen til en private metode
             echo $this->helloder($tekst);
         }
@@ -37,123 +41,28 @@
             // switch til hvilke opgavr man har med at gøre
             switch($tekst){
                 case "hjemmeside":
-                    include_once("./classProjekt.php");
-                    include_once("./classBilleder.php");
-
-                    $projekt = new projekter();
-                    $billede = new Billeder();
-
-                    $resultPro = $projekt->getKunRentOpgave(1);
-
-                    $alt = "";
-                    $antal = count($resultPro);
-                    for($i = 0; $i < $antal; $i++){
-                        $resultBil = $billede->getKenRentImg(1);
-
-                        $alt .= $resultBil[$i] . $resultPro[$i];
-                    }
-                    $tilsidst = rtrim($alt, "£");
-                    echo $tilsidst;
-                    //$this->getValueTooProjekt(3);
+                    echo $this->OnlyOneThingTooPorjket(1);
                     break;
                 case "c#":
-                    include_once("./classProjekt.php");
-                    include_once("./classBilleder.php");
-
-                    $projekt = new projekter();
-                    $billede = new Billeder();
-
-                    $resultPro = $projekt->getKunRentOpgave(2);
-
-                    $alt = "";
-                    $antal = count($resultPro);
-                    for($i = 0; $i < $antal; $i++){
-                        $resultBil = $billede->getKenRentImg(2);
-
-                        $alt .= $resultBil[$i] . $resultPro[$i];
-                    }
-                    $tilsidst = rtrim($alt, "£");
-                    echo $tilsidst;
-                    //$this->getValueTooProjekt(3);
+                    echo $this->OnlyOneThingTooPorjket(2);
                     break;
                 case "alene":
-                    include_once("./classProjekt.php");
-                    include_once("./classBilleder.php");
-
-                    $projekt = new projekter();
-                    $billede = new Billeder();
-
-                    $resultPro = $projekt->getKunRentOpgave(3);
-
-                    $alt = "";
-                    $antal = count($resultPro);
-                    for($i = 0; $i < $antal; $i++){
-                        $resultBil = $billede->getKenRentImg(3);
-
-                        $alt .= $resultBil[$i] . $resultPro[$i];
-                    }
-                    $tilsidst = rtrim($alt, "£");
-                    echo $tilsidst;
-                    //$this->getValueTooProjekt(3);
+                    echo $this->OnlyOneThingTooPorjket(3);
                     break;
                 case "gruppe":
-                    include_once("./classProjekt.php");
-                    include_once("./classBilleder.php");
-
-                    $projekt = new projekter();
-                    $billede = new Billeder();
-
-                    $resultPro = $projekt->getKunRentOpgave(4);
-
-                    $alt = "";
-                    $antal = count($resultPro);
-                    for($i = 0; $i < $antal; $i++){
-                        $resultBil = $billede->getKenRentImg(4);
-
-                        $alt .= $resultBil[$i] . $resultPro[$i];
-                    }
-                    $tilsidst = rtrim($alt, "£");
-                    echo $tilsidst;
+                    echo $this->OnlyOneThingTooPorjket(4);
                     break;
                 case "3,1":
-                    include_once("./classProjekt.php");
-                    include_once("./classBilleder.php");
-
-                    $projekt = new projekter();
-                    $billede = new Billeder();
-
-                    $tekst = explode(",", $tekst); // deler teksten op efter hver ","
-                    
-                    $resultPro = $projekt->getProjektFromAleneAndGruppe($tekst[0], $tekst[1]);
-                    $alt = "";
-                    $antal = count($resultPro);
-                    for($i = 0; $i < $antal; $i++){
-                        $resultBil = $billede->getImgFromAleneAndGruppe($tekst[0], $tekst[1]);
-
-                        $alt .= $resultBil[$i] . $resultPro[$i];
-                    }
-                    $tilsidst = rtrim($alt, "£");
-                    echo $tilsidst;
+                    echo $this->TooAleneAndGruppe($tekst);
                     break;
                 case "3,2":
-                    include_once("./classProjekt.php");
-                    include_once("./classBilleder.php");
-
-                    $projekt = new projekter();
-                    $billede = new Billeder();
-
-                    $tekst = explode(",", $tekst); // deler teksten op efter hver ","
-                    
-                    $resultPro = $projekt->getProjektFromAleneAndGruppe($tekst[0], $tekst[1]);
-                    $alt = "";
-                    $antal = count($resultPro);
-                    for($i = 0; $i < $antal; $i++){
-                        $resultBil = $billede->getImgFromAleneAndGruppe($tekst[0], $tekst[1]);
-
-                        $alt .= $resultBil[$i] . $resultPro[$i];
-                    }
-                    $tilsidst = rtrim($alt, "£");
-                    echo $tilsidst;
+                    echo $this->TooAleneAndGruppe($tekst);
+                    break;
+                case "4,1":
+                    echo $this->TooAleneAndGruppe($tekst);
+                    break;
+                case "4,2":
+                    echo $this->TooAleneAndGruppe($tekst);
                     break;
                 default:
                     include_once("./classProjekt.php");
@@ -194,7 +103,6 @@
                     
                     $resultPro = $projekt->test($tekst);
                     
-                    
                     // Hvis man for et resultat fra databasen 
                     if(!in_array('Der er ingen tilgængelig match, fra det vælgte søgresultat', $resultPro)){
                         $alt = "";
@@ -206,7 +114,7 @@
                                 $alt .= $resultBil[$i] . $resultPro[$i];   
                             }
                             else{
-                                $tilsidst = $resultPro[0];
+                                $tilsidst = $resultBil[0];
                             }
                         }
                         $tilsidst = rtrim($alt, "£");
@@ -220,26 +128,62 @@
             }
         }
         
-        /***************************************/
-        /*        test til mindre kode         */
-        /***************************************/
-        private function getValueTooProjekt($funTal){
+        /***************************************************/
+        /*   kun når det handler om en ting -sprog         */
+        /***************************************************/        
+        private function OnlyOneThingTooPorjket($tal){
             include_once("./classProjekt.php");
             include_once("./classBilleder.php");
 
             $projekt = new projekter();
             $billede = new Billeder();
-            
-            $resultPro = /* her */
+
+            $resultPro = $projekt->getKunRentOpgave($tal);
 
             $alt = "";
             $antal = count($resultPro);
             for($i = 0; $i < $antal; $i++){
-                $resultBil = /* her */
+                $resultBil = $billede->getKenRentImg($tal);
 
                 $alt .= $resultBil[$i] . $resultPro[$i];
             }
             $tilsidst = rtrim($alt, "£");
+            echo $tilsidst;
+        }
+        
+        /***************************************************/
+        /*          kun handler om projekt og type         */
+        /***************************************************/
+        private function TooAleneAndGruppe($tekst){
+            include_once("./classProjekt.php");
+            include_once("./classBilleder.php");
+
+            $projekt = new projekter();
+            $billede = new Billeder();
+
+            $tekst = explode(",", $tekst); // deler teksten op efter hver ","
+            
+            $resultPro = $projekt->getProjektFromAleneAndGruppe($tekst[0], $tekst[1]);
+            
+            if(!in_array('Der er ingen tilgængelig match, fra det vælgte søgresultat', $resultPro)){
+                $alt = "";
+                $antal = count($resultPro);
+                for($i = 0; $i < $antal; $i++){
+                    $resultBil = $billede->getImgFromAleneAndGruppe($tekst[0], $tekst[1]);
+
+                    if(!in_array('Der er ingen tilgængelig match, fra det vælgte søgresultat', $resultBil)){
+                        $alt .= $resultBil[$i] . $resultPro[$i];
+                    }
+                    else{
+                        $tilsidst = $resultBil[0];
+                    }
+                    
+                }
+                $tilsidst = rtrim($alt, "£");
+            }
+            else{
+                $tilsidst = $resultPro[0];
+            }
             echo $tilsidst;
         }
         

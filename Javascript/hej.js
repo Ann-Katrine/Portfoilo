@@ -116,7 +116,6 @@ var objSidebarSprog = [
 	}
 ];
 
-
 let arrayProjket = [];
 let arrayType = [];
 let arraySprog = [];
@@ -280,6 +279,7 @@ function type(id, tal){
         for(let i = 0; i < antalType; i++){
             if(getDGEBI(objSidebarProjekt[tal].checkboxId).checked === true && objSidebarType[i].checkboxId === id && objSidebarType[i].firstTime === true|| getDGEBI(objSidebarProjekt[i].checkboxId).checked === true && objSidebarType[i].checkboxId === id && objSidebarType[i].firstTime === true){
                 console.log("projket");
+                
             }
             else{
                 for(let i = 0; i < antalType; i++){
@@ -518,7 +518,7 @@ function opretOpgaver(){
         }
         console.log("har mere end hjem og c#");
     }
-} // ikke færdig her endnu
+}
 
 /***************************************/
 /*             lave opgaver            */
@@ -527,7 +527,26 @@ function Opgaver(projekt, plads){
     console.log(projekt + " = projekt");
 	$.get("PHP/index.php?choice=" + projekt, function(data){
         if(data.includes("Der er ingen tilgængelig match, fra det vælgte søgresultat")){
-           // mangler: så der kommer tekst        
+           // mangler: så der kommer tekst     
+            let array = data.split("£");
+//            console.log(array);
+            let newLine = document.createElement("div");
+            let Temp = document.getElementById(plads);
+            Temp.appendChild(newLine);
+            let newDiv = document.createElement("div");
+            newLine.appendChild(newDiv);
+            
+            array.forEach(function(index){
+                let tekst = document.createElement("p");
+                tekst.setAttribute("id", "slet");
+                tekst.className = "slet";
+                let teksten = document.createTextNode(index);
+                tekst.appendChild(teksten);
+                newDiv.appendChild(tekst);
+            });
+            
+            
+            
             console.log("er ved ikke noget i søgeresultatet");
         }
         else{
@@ -537,7 +556,7 @@ function Opgaver(projekt, plads){
             let newLine = document.createElement("div");
             let Temp = document.getElementById(plads);
             Temp.appendChild(newLine);
-            newDiv = document.createElement("div");
+            let newDiv = document.createElement("div");
             newDiv.className = "clearfix";
             newLine.appendChild(newDiv);
 
@@ -556,7 +575,7 @@ function Opgaver(projekt, plads){
                 div.appendChild(img);
 
                 let overskrift = document.createElement("p");
-                let navn = document.createTextNode(temp[2] + "hej");
+                let navn = document.createTextNode(temp[2]);
                 overskrift.appendChild(navn);
                 div.appendChild(overskrift);
 
@@ -573,4 +592,4 @@ function Opgaver(projekt, plads){
             });
         }
 	});
-} // ikke færdig her endnu
+}

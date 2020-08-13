@@ -1,3 +1,6 @@
+/*********************************************************/
+/*     Til pilen på opgavesiden bliver vist/gemt         */
+/*********************************************************/
 function toggleSidebar() {
 	$(".side1").toggleClass("hide");
 }
@@ -17,6 +20,14 @@ function hide(){
 	
 }
 
+/*******************************************************************/
+/*       Til at hjælpe med hvilken overskrift de skal have         */
+/*******************************************************************/
+let arrayOverskrift = ["Hvilket projekt", "Hvilket projekt type", "Hvilket sprog"];
+
+/***************************************************/
+/*                  Til at lave sidebar            */
+/***************************************************/
 function sidebar(){
 	let Newline = document.createElement("ul");
 	Newline.className = "nav flex-column";
@@ -56,8 +67,9 @@ function sidebar(){
 	//opretCheckbox("Sprog", "HvilkeSprog", arrayOverskrift[2], "sprogBox");
 }
 
-let arrayOverskrift = ["Hvilket projekt", "Hvilket projekt type", "Hvilket sprog"];
-
+/***************************************************/
+/*             Til at oprette tjekboksene          */
+/***************************************************/
 function opretCheckbox(routing, id, overskrift, showOpgave){
 	$.get("PHP/index.php?choice=" + routing, function(data){ // her
 		let array = data.split("£");
