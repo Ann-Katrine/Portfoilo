@@ -1,4 +1,4 @@
-function test(){
+function htmlOpager(){
 	hide();
 	sidebar();
 	hjemCSharp();
@@ -7,22 +7,19 @@ function test(){
 
 function hjemCSharp(){
 	Opgaver("hjemmesideOpgaver", "start");
-	Opgaver("cSharpOpgaver", "start1")
+	Opgaver("cSharpOpgaver", "start1");
 }
 
 var LastId = 0;
 
 /* checkbox  i HTML-filen */
-let arrayCheckbox = ["box1", "box2", "underbox0", "underbox1"]; /* GEM DEN! -----------------------*/
+let arrayCheckbox = ["box0", "box1", "underbox0", "underbox1"]; 
 
 /* sprog i HTML-filen */
 let arrayCheckBoxSprog = ["sprogBox0", "sprogBox1", "sprogBox2", "sprogBox3", "sprogBox4", "sprogBox5"];
 
 /* id i HTML-filen */
-
 let arrayId = ["start", "start1", "alene", "gruppe", "aleneHjem", "aleneCSharp", "gruppeHjem", "gruppeCSharp", "sprog"];
-
-/*let arrayId = ["start", "start1", "alene", "gruppe"];*/
 
 /* område i HTML-filen */
 let arrayOmraade = ["projekter", "type", "sprog"];
@@ -36,8 +33,9 @@ function getDGEBI(checbox){
 }
 
 function showAlleOpgaver(id){
+	console.log(id);
 	// C#
-	if(getDGEBI(arrayCheckbox[1]) && getDGEBI(arrayCheckbox[1]).checked === true && id == "box2")
+	if(getDGEBI(arrayCheckbox[1]) && getDGEBI(arrayCheckbox[1]).checked === true && id == "box1")
 	{
 		if(getDGEBI(arrayCheckbox[2]).checked === true ){
 			console.log(" c# alene");
@@ -60,12 +58,12 @@ function showAlleOpgaver(id){
 		else{
 			console.log("C#");
 			projekterAndType(id, 0, arrayId[1]);
-			getDGEBI(arrayCheckbox[0]).checked = false;	
+			getDGEBI(arrayCheckbox[0]).checked = false;
 			//getDGEBI(arrayCheckbox[1]).checked = true|false;
 		}
 	}
 	// hjemmeside
-	else if(getDGEBI(arrayCheckbox[0]) && getDGEBI(arrayCheckbox[0]).checked === true && id == "box1")
+	else if(getDGEBI(arrayCheckbox[0]) && getDGEBI(arrayCheckbox[0]).checked === true && id == "box0")
 	{
 		if(getDGEBI(arrayCheckbox[2]).checked === true ){
 			console.log(" hjemmeside alene");
@@ -254,13 +252,13 @@ function showAlleOpgaver(id){
 		if(getDGEBI(arrayCheckbox[0]) && getDGEBI(arrayCheckbox[0]).checked && LastId == "underbox0" || getDGEBI(arrayCheckbox[0]) && getDGEBI(arrayCheckbox[0]).checked && LastId == "underbox1" ){
 			console.log("kun hjemmeside");
 			getDGEBI(arrayCheckbox[1]).checked = false;
-			projekterAndType(id, 0, arrayId(0));
+			projekterAndType(id, 0, arrayId[0]);
 		}
 		// C#
 		else if(getDGEBI(arrayCheckbox[1]) && getDGEBI(arrayCheckbox[1]).checked && LastId == "underbox0" || getDGEBI(arrayCheckbox[1]) && getDGEBI(arrayCheckbox[1]).checked && LastId == "underbox1"){
 			console.log("kun C#");
 			getDGEBI(arrayCheckbox[0]).checked = false;
-			projekterAndType(id, 0, arrayId(1));
+			projekterAndType(id, 0, arrayId[1]);
 		}
 		// alene
 		else if(getDGEBI(arrayCheckbox[2]) && getDGEBI(arrayCheckbox[2]).checked && LastId == "box1" || getDGEBI(arrayCheckbox[2]) && getDGEBI(arrayCheckbox[2]).checked && LastId == "box2"){
@@ -324,7 +322,7 @@ function programmeringSprog(id){
 				
 				//$("#sprogBox0").empty()
 				
-				getDGEBI(arraySprogId[i]).innerHTML = "<div id='" + getDGEBI(arrayCheckBoxSprog[i]) + "'></div>";
+				//getDGEBI(arraySprogId[i]).innerHTML = "<div id='" + getDGEBI(arrayCheckBoxSprog[i]) + "'></div>";
 				
 				Opgaver("sprogBox" + sprog, arrayCheckBoxSprog[i]);
 				console.log(arrayProSprog);
