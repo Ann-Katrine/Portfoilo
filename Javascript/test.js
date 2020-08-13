@@ -17,6 +17,8 @@ function hide(){
 	
 }
 
+let arrayOverskrift = ["Hvilket projekt", "Hvilket projekt type", "Hvilket sprog"];
+
 function sidebar(){
 	let Newline = document.createElement("ul");
 	Newline.className = "nav flex-column";
@@ -56,9 +58,7 @@ function sidebar(){
 	opretCheckbox("Sprog", "HvilkeSprog", arrayOverskrift[2], "sprogBox");
 }
 
-let arrayOverskrift = ["Hvilket projekt", "Hvilket projekt type", "Hvilket sprog"];
-
-function opretCheckbox(routing, id, overskrift, showOpgave){
+function opretCheckbox(routing, id, overskriftText, showOpgave){
 	$.get("PHP/index.php?choice=" + routing, function(data){ // her
 		let array = data.split("£");
 		//console.log(array);
@@ -70,7 +70,7 @@ function opretCheckbox(routing, id, overskrift, showOpgave){
 		
 		let p = document.createElement("p");
 		p.className = "tekst";
-		let overskrift = document.createTextNode("Hvilket projekt"); // her
+		let overskrift = document.createTextNode(overskriftText); // her
 		p.appendChild(overskrift);
 		li.appendChild(p);
 		
