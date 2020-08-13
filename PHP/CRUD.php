@@ -6,30 +6,35 @@
     include_once("./tabel/projekt.php");
 
     class crud{  
-        public function get(){
+        /****************************************************/
+        /*     for at se de forskellige ting i databasen    */
+        /****************************************************/
+        public function get($table, $rows){
+            $db = new DB();
+            
+           // $stmt = $
             
         }
         
+        /**********************************************************************/
+        /*      for at se de forskellige ting i databasen med bestem id       */
+        /**********************************************************************/
         public function getById($id, $table, $rows){
             
         }
         
+        /***********************************************/
+        /*      for at oprette ting til databasen      */
+        /***********************************************/
         public function post($table, $rows, $values){
             $arrayRows = "";
-            $arrayValues = "";
             $db = new DB();
             
-            $antalValues = count($values);
-            for($i = 0; $i < $antalValues; $i++){
-                $arrayRows .= $rows[$i] . ",";
-                $arrayValues .= $values[$i] . ",";
-            }
-            $arrayRows = rtrim($arrayRows, ",");
-            $arrayValues = rtrim($arrayValues, ",");
+            $arrayRows = $this->putInOrder($rows);
             
             $stmt = $db->conn->prepare("INSERT INTO projekt (" . $arrayRows . ") VALUES (?, ?, ?)");
             
-            $stmt->bind_param("sss", /*$table, $arrayRows, $arrayRows,*/ $values[0], $values[1],$values[2]);
+            $stmt->bind_param("sss", /* $table, $arrayRows, $arrayRows, */ $values[0], $values[1],$values[2]);
             $stmt->execute();
             $stmt->get_result();
             $result = $stmt->affected_rows;
@@ -47,12 +52,30 @@
             $db->conn->close();
         }
         
+        /***********************************************/
+        /*      for at kunne rediger i databasen       */
+        /***********************************************/
         public function put(){
             
         }
         
+        /***********************************************/
+        /*      for at kunne slette i databasen        */
+        /***********************************************/
         public function delect(){
             
+        }
+        
+        private function putInOrder($order){
+            $arrayOrder = "";
+            
+            $antalOrder = count($order);
+            for($i = 0; $i < $antalOrder; $i++){
+                $arrayOrder .= $order[$i] . ",";
+            }
+            $arrayOrder = rtrim($arrayOrder, ",");
+            
+            return $arrayOrder;
         }
     }
 
