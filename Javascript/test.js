@@ -106,7 +106,7 @@ function hvilkenProjektType(){
 		
 		let p = document.createElement("p");
 		p.className = "tekst";
-		let overskrift = document.createTextNode("Hvilket projekt");
+		let overskrift = document.createTextNode("Hvilket projekt type");
 		p.appendChild(overskrift);
 		li.appendChild(p);
 		

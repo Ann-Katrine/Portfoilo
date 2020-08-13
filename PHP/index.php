@@ -104,7 +104,64 @@
 			$alt = "";
 			$antal = count($resultPro);
 			for($i = 0; $i < $antal; $i++){
-				$resultBil = $billede->getImagesToOpgaver($i);
+				$resultBil = $billede->getAleneImg($i);
+				
+				$alt .= $resultBil[$i] . $resultPro[$i];
+			}
+			$tilsidst = rtrim($alt, "£");
+			echo $tilsidst;
+			break;
+		case "AlleOpgaverGruppe":
+			include_once("./classProjekt.php");
+			include_once("./classBilleder.php");
+			
+			$projekt = new projekter();
+			$billede = new Billeder();
+			
+			$resultPro = $projekt->getAllGruppeOpgaver();
+			
+			$alt = "";
+			$antal = count($resultPro);
+			for($i = 0; $i < $antal; $i++){
+				$resultBil = $billede->getGruppeImg($i);
+				
+				$alt .= $resultBil[$i] . $resultPro[$i];
+			}
+			$tilsidst = rtrim($alt, "£");
+			echo $tilsidst;
+			break;
+		case "AleneHjem":
+			include_once("./classProjekt.php");
+			include_once("./classBilleder.php");
+			
+			$projekt = new projekter();
+			$billede = new Billeder();
+			
+			$resultPro = $projekt->getProjektFromAleneAndGruppe(3, 2);
+			$alt = "";
+			$antal = count($resultPro);
+			for($i = 0; $i < $antal; $i++){
+				$resultBil = $billede->getImgFromAleneAndGruppe(3, 2);
+				
+				$alt .= $resultBil[$i] . $resultPro[$i];
+			}
+			$tilsidst = rtrim($alt, "£");
+			echo $tilsidst;
+			break;
+		case "AleneCSharp":
+			include_once("./classProjekt.php");
+			include_once("./classBilleder.php");
+			
+			$projekt = new projekter();
+			$billede = new Billeder();
+			
+			$resultPro = $projekt->getProjektFromAleneAndGruppe(3, 1);
+			var_dump($resultPro);
+			exit();
+			$alt = "";
+			$antal = count($resultPro);
+			for($i = 0; $i < $antal; $i++){
+				$resultBil = $billede->getImgFromAleneAndGruppe(3, 1);
 				
 				$alt .= $resultBil[$i] . $resultPro[$i];
 			}
