@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Opgaver</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+	</head>
+	<body class="tekst_type" onload="Show_opgaver(); hide(); Show_opgave1();">
+		<!-- Navigation Bar -->
+		<nav id="navbar" class="rainbow">
+			<ul>
+				<li>
+					<a href="index.html">Forside</a>
+				</li>
+				<li>
+					<a href="Opgaver.html">Opgaver</a>
+				</li>
+				<li>
+					<a href="Kontakt.html">Kontakt</a>
+				</li>
+			</ul>
+		</nav>
+		
+		<!-- The flexible grid (content) -->
+		<div id="sticky_hojde" class="row1">
+			<div class="side1 hide">
+				<button class="navbar-toggler ml-auto" type="button" onclick="toggleSidebar(); hide();">
+					<ion-icon name="arrow-round-back" class="hide_and_seek1"></ion-icon>
+				</button>
+				<div id="sidebar" onload="sammenligne()">
+					<ul class="nav flex-column">
+						<li class="nav-item">
+							<p class="tekst">Hvilket projekt</p>
+							<input type="checkbox" id="box" onclick="Choice1()"><a>Skal projekter</a>
+							<br>
+							<input type="checkbox" id="box1" onclick="Choice()"><a>Mine projekter</a>
+						</li>
+						<li class="nav-item">
+							<hr>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="main1">
+				<button class="navbar-toggler ml-auto" type="button" onclick="toggleSidebar(); hide();">
+					<ion-icon name="arrow-round-forward" class="hide_and_seek"></ion-icon>
+				</button>
+				<div >
+					<div class="hide_alt" id="projekter"></div>
+					<div class="hide_alt1" id="pro"></div>
+					<div class="123">
+						<div>
+							<h2>Hjemmesider</h2>
+							<div id="start"></div>
+						</div>
+						<div>
+							<h2>C#</h2>
+							<div id="start1"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+		
+		<script src="Javascript/Show_opgaver.js"></script>
+		<script src="Javascript/Sidebar.js"></script>
+	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>'
+		<script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+	
+		<link href="CSS/CSS.css" rel="stylesheet" type="text/css">
+		<script src="Javascript/StickyNavbar.js"></script>
+</html>

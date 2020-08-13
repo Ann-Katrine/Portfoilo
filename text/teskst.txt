@@ -1,0 +1,4 @@
+prøv
+
+-husk flex(css) ikke table
+-css linear gradient(css) {kan gøre at man kan blande farverne}
