@@ -1,273 +1,206 @@
+let arrayAlt = [];
+let arrayProjket = [];
+let arrayType = [];
+let arraySprog = [];
+
+//let sidstId = "";
+
 function showAlleOpgaver(id){
-	/* chekbox */
-	let hjemmeside = document.getElementById("box1"); 
-	let cSharp = document.getElementById("box2");
-	let alene = document.getElementById("underbox0");
-	let gruppe = document.getElementById("underbox1");
-	let spCSharp = document.getElementById("SprogBox0");
-	let html = document.getElementById("SprogBox1");
-	
-	/* id */
-	let clearProjekter = document.getElementById("projekter");
-	let clearType = document.getElementById("type");
-	let clearSprog = document.getElementById("sprog");
-	let clearHjemmeside = document.getElementById("start");
-	let clearCSharp = document.getElementById("start1");
-	let clearAlene = document.getElementById("alene") ;
-	let clearGruppe = document.getElementById("gruppe");
-	let clearAleneHjem = document.getElementById("aleneHjem");
-	let clearAleneCSharp = document.getElementById("aleneCSharp");
-	let clearGruppeHjem = document.getElementById("gruppeHjem");
-	let clearGruppeCSharp = document.getElementById("gruppeCSharp");
-	let clearSpCSharp = document.getElementById("cSharp");
-	let clearHtml = document.getElementById("html");
-	
-	/*console.log(id);*/
-	
-	// hvis lastid eller id = C#
-	if(cSharp && cSharp.checked === true && id == "box2")
-	{
-		if(alene.checked === true){
-			console.log(" c# alene");
-			hjemmeside.checked = false;
-			/*Opgaver("AleneCSharp", "aleneCSharp");
-			clearGruppe.checked = false;
-			clearAleneCSharp.classList.remove("forsvind");
-			clearAleneHjem.className = "forsvind";
-			clearHjemmeside.className = "forsvind";
-			clearGruppe.className = "forsvind";
-			clearAlene.className = "forsvind";*/
-		}
-		else if(gruppe.checked === true){
-			console.log(" c# gruppe");
-			hjemmeside.checked = false;
-		}
-		else{
-			console.log("C#");
-			hjemmeside.checked = false;
-			clearCSharp.classList.remove("forsvind");
-			clearHjemmeside.className = "forsvind";
-		}
-	}
-	// hvis lastid eller id =hjemmeside
-	else if(hjemmeside && hjemmeside.checked === true && id == "box1")
-	{
-		if(alene.checked === true ){
-			console.log(" hjemmeside alene");
-			cSharp.checked = false;
-			/*Opgaver("AleneHjem", "aleneHjem");
-			clearGruppe.checked = false;
-			clearAleneHjem.classList.remove("forsvind");
-			clearHjemmeside.className = "forsvind";
-			clearGruppe.className = "forsvind";
-			clearAlene.className = "forsvind";*/
-		}
-		else if(gruppe.checked === true){
-			console.log(" hjemmside gruppe");
-			cSharp.checked = false;
-			clearAlene.checked = false;
-		}
-		else{
-			console.log("hjemmeside");
-			cSharp.checked = false;
-			clearHjemmeside.classList.remove("forsvind");
-			clearCSharp.className = "forsvind";
-		}
-	}
-	// hvis lastid eller id = alene
-	else if(alene && alene.checked === true && id == "underbox0")
-	{
-		if(cSharp.checked === true)
-		{
-			console.log("alene c#");
-			gruppe.checked = false;
-			clearCSharp.classList.remove("forsvind");
-			clearHjemmeside.className = "forsvind";
-		}
-		else if(hjemmeside.checked === true)
-		{
-			console.log("alene html");
-			gruppe.checked = false;
-			clearHjemmeside.classList.remove("forsvind");
-			clearCSharp.className = "forsvind";
-		}
-		else
-		{
-			console.log("alene");
-			Opgaver("AlleOpgaverAlene", "alene");
-			gruppe.checked = false;
-			clearType.classList.remove("forsvind");
-			clearAlene.classList.remove("forsvind");
-			clearProjekter.className = "forsvind";
-			clearSprog.className = "forsvind";
-			clearGruppe.className = "forsvind";
-		}
-	}
-	// hvis lastid eller id = gruppe
-	else if(gruppe && gruppe.checked === true && id == "underbox1")
-	{
-		if(hjemmeside.checked === true)
-		{
-		    console.log("gruppe c#");
-			alene.checked = false;
-		}
-		else if(cSharp.checked === true){
-			console.log("gruppe html");
-			alene.checked = false;
-		}
-		else
-		{
-			console.log("gruppe");
-			Opgaver("AlleOpgaverGruppe", "gruppe");
-			alene.checked = false;
-			clearType.classList.remove("forsvind");
-			clearGruppe.classList.remove("forsvind");
-			clearProjekter.className = "forsvind";
-			clearSprog.className = "forsvind";
-			clearAlene.className = "forsvind";
-		}
-	}
-	// hvis det er alt der skal vises
-	else if(cSharp && cSharp.checked === true && LastId == "box2")
-	{
-		if(alene.checked === true){
-			console.log(" c# alene");
-			hjemmeside.checked = false;
-			/*Opgaver("AleneCSharp", "aleneCSharp");
-			clearGruppe.checked = false;
-			clearAleneCSharp.classList.remove("forsvind");
-			clearAleneHjem.className = "forsvind";
-			clearHjemmeside.className = "forsvind";
-			clearGruppe.className = "forsvind";
-			clearAlene.className = "forsvind";*/
-		}
-		else if(gruppe.checked === true){
-			console.log(" c# gruppe");
-			hjemmeside.checked = false;
-		}
-		else{
-			console.log("C#");
-			hjemmeside.checked = false;
-			clearCSharp.classList.remove("forsvind");
-			clearHjemmeside.className = "forsvind";
-		}
-	}
-	else if(hjemmeside && hjemmeside.checked === true && LastId == "box1")
-	{
-		if(alene.checked === true ){
-			console.log(" hjemmeside alene");
-			cSharp.checked = false;
-			/*Opgaver("AleneHjem", "aleneHjem");
-			clearGruppe.checked = false;
-			clearAleneHjem.classList.remove("forsvind");
-			clearHjemmeside.className = "forsvind";
-			clearGruppe.className = "forsvind";
-			clearAlene.className = "forsvind";*/
-		}
-		else if(gruppe.checked === true){
-			console.log(" hjemmside gruppe");
-			cSharp.checked = false;
-			clearAlene.checked = false;
-		}
-		else{
-			console.log("hjemmeside");
-			cSharp.checked = false;
-			clearHjemmeside.classList.remove("forsvind");
-			clearCSharp.className = "forsvind";
-		}
-	}
-	// hvis lastid eller id = alene
-	else if(alene && alene.checked === true && LastId == "underbox0")
-	{
-		if(cSharp.checked === true)
-		{
-			console.log("alene c#");
-			gruppe.checked = false;
-			clearCSharp.classList.remove("forsvind");
-			clearHjemmeside.className = "forsvind";
-		}
-		else if(hjemmeside.checked === true)
-		{
-			console.log("alene html");
-			gruppe.checked = false;
-			clearHjemmeside.classList.remove("forsvind");
-			clearCSharp.className = "forsvind";
-		}
-		else
-		{
-			console.log("alene");
-			Opgaver("AlleOpgaverAlene", "alene");
-			gruppe.checked = false;
-			clearType.classList.remove("forsvind");
-			clearAlene.classList.remove("forsvind");
-			clearProjekter.className = "forsvind";
-			clearSprog.className = "forsvind";
-			clearGruppe.className = "forsvind";
-		}
-	}
-	// hvis lastid eller id = gruppe
-	else if(gruppe && gruppe.checked === true && LastId == "underbox1")
-	{
-		if(hjemmeside.checked === true)
-		{
-		   console.log("gruppe c#")
-			alene.checked = false;
-		}
-		else if(cSharp.checked === true){
-			console.log("gruppe html")
-			alene.checked = false;
-		}
-		else
-		{
-			console.log("gruppe");
-			Opgaver("AlleOpgaverGruppe", "gruppe");
-			alene.checked = false;
-			clearType.classList.remove("forsvind");
-			clearGruppe.classList.remove("forsvind");
-			clearProjekter.className = "forsvind";
-			clearSprog.className = "forsvind";
-			clearAlene.className = "forsvind";
-		}
-	}
-	else 
-	{
-		if(hjemmeside && hjemmeside.checked && LastId == "underbox0" || hjemmeside && hjemmeside.checked && LastId == "underbox1" ){
-			console.log("kun hjemmeside");
-			cSharp.checked = false;
-		}
-		else if(cSharp && cSharp.checked && LastId == "underbox0" || cSharp && cSharp.checked && LastId == "underbox1"){
-			console.log("kun C#");
-			hjemmeside.checked = false;
-		}
-		else if(alene && alene.checked && LastId == "box1" || alene && alene.checked && LastId == "box2"){
-			console.log("kun alene");
-			gruppe.checked = false;
-		}
-		else if(gruppe && gruppe.checked && LastId == "box1" || gruppe && gruppe.checked && LastId == "box2"){
-			console.log("kun Gruppe");
-			alene.checked = false;
-		}
-		else{
-			console.log("start");
-			clearHjemmeside.classList.remove("forsvind");
-			clearCSharp.classList.remove("forsvind");
-			clearProjekter.classList.remove("forsvind");
-			clearType.className = "forsvind"; /* husk */	
-		}
-	}
-	// sprogbox
-	/*if(spCSharp && spCSharp.checked === true)
-	{
-		console.log("sprog c#");
-		html.checked = false;
-	}
-	if(html && html.checked === true)
-	{
-		console.log("sprog html");	
-		spCSharp.checked = false;
-	}*/
-	
-	LastId = id;
-	console.log(LastId + " = lastid");
-	console.log("_____________");
+    switch(id){
+        case "box0":
+            getDGEBI(objSidebarProjekt[0].stedId).classList.remove("forsvind");
+            getDGEBI(objSidebarProjekt[1].stedId).className = "forsvind";
+            getDGEBI(objSidebarProjekt[1].checkboxId).checked = false;
+            projekter(id, 0);
+            break;
+        case "box1":
+            getDGEBI(objSidebarProjekt[1].stedId).classList.remove("forsvind");
+            getDGEBI(objSidebarProjekt[0].stedId).className = "forsvind";
+            getDGEBI(objSidebarProjekt[0].checkboxId).checked = false;
+            projekter(id, 1);
+            break;
+        case "underbox0":
+            getDGEBI(objSidebarType[0].stedId).classList.remove("forsvind");
+            getDGEBI(objSidebarType[1].stedId).className = "forsvind";
+            getDGEBI(objSidebarType[1].checkboxId).checked = false;
+            type(id, 0);
+            break;
+        case "underbox1":
+            getDGEBI(objSidebarType[1].stedId).classList.remove("forsvind");
+            getDGEBI(objSidebarType[0].stedId).className = "forsvind";
+            getDGEBI(objSidebarType[0].checkboxId).checked = false;
+            type(id, 1);
+            break;
+        case "sprogBox0":
+            break;
+        case "sprogBox1":
+            break;
+        case "sprogBox2":
+            break;
+        case "sprogBox3":
+            break;
+        case "sprogBox4":
+            break;
+        case "sprogBox5":
+            break;
+        default:
+            deleteAlt("start", 0);
+            console.log("start");
+            break;
+    }
+    
+    
+    let antal = arrayAlt.length;
+    for(let i = 0; i < antal; i++){
+        delete arrayAlt[i];
+    }
+    arrayAlt = arrayAlt.filter(function() {return true});
+    
+    if(arrayProjket.length != 0){
+        console.log();
+        arrayAlt.push(arrayProjket);
+    }
+    if(arrayType.length != 0){
+        console.log("push type alt");
+        arrayAlt.push(arrayType);
+    }
+    
+    console.log(arrayProjket + " = arrayProjket");
+    console.log(arrayType + " = arrayType");
+    console.log(arrayAlt + " = arrayAlt");
+    console.log("____________________________");
 }
+
+let antalProjekt = objSidebarProjekt.length;
+let antalType = objSidebarType.length;
+
+function projekter(id, tal){
+    getDGEBI(objSidebarProjekt[tal].omraade).classList.remove("forsvind");
+    
+    if(objSidebarProjekt[tal].checkboxId === id && getDGEBI(objSidebarProjekt[tal].checkboxId).checked === true){
+        for(let i = 0; i < antalProjekt; i++){
+            if(getDGEBI(objSidebarType[i].checkboxId).checked === true){
+                console.log("type");
+                objSidebarProjekt[tal].tilladelse = true;
+            }
+        }
+        
+        if(objSidebarProjekt[tal].tilladelse === false){
+            console.log("du er her :D, projekter");
+            if(objSidebarProjekt[tal].oprettet === false){
+                console.log("noget til true projekt");
+                arrayProjket.push(objSidebarProjekt[tal].routing); // tilføjer hvilken den skal printe ud
+                objSidebarProjekt[tal].oprettet = true;
+                deleteAlt("projekter", tal);
+            }      
+        }
+    }
+    else if(getDGEBI(objSidebarProjekt[tal].checkboxId).checked === false){ 
+        for(let i = 0; i < antalProjekt; i++){
+            if(getDGEBI(objSidebarType[tal].checkboxId).checked === true || getDGEBI(objSidebarType[i].checkboxId).checked === true){
+                console.log("type");
+            }
+            else{
+                for(let i = 0; i < antalProjekt; i++){
+                    getDGEBI(objSidebarProjekt[i].stedId).classList.remove("forsvind");
+                    delete arrayProjket[i];
+                    objSidebarProjekt[tal].oprettet = false;
+                }
+                arrayProjket = arrayProjket.filter(function() {return true });
+                getDGEBI(objSidebarType[1].omraade).className = "forsvind";
+                getDGEBI(objSidebarSprog[1].omraade).className = "forsvind";
+                console.log("start");
+            }
+        }
+        
+    }
+}
+
+function type(id, tal){
+    getDGEBI(objSidebarType[tal].omraade).classList.remove("forsvind");
+    
+    if(objSidebarType[tal].checkboxId === id && getDGEBI(objSidebarType[tal].checkboxId).checked === true){
+        console.log("du er her :D, projekter:D");
+        for(let i = 0; i < antalProjekt; i++){
+            if(getDGEBI(objSidebarProjekt[i].checkboxId).checked === true){
+                projekter(id, tal);
+            }
+            else{
+                if(objSidebarType[tal].oprettet === false){
+                    console.log("noget til true type");
+                    arrayType.push(objSidebarType[tal].routing);
+                    objSidebarType[tal].oprettet = true;
+                    deleteAlt("type", tal);
+                }
+            }
+        }
+    }
+    else if(getDGEBI(objSidebarType[tal].checkboxId).checked === false){
+        for(let i = 0; i < antalType; i++){
+            if(getDGEBI(objSidebarProjekt[tal].checkboxId).checked === true && objSidebarType[i].checkboxId === id || getDGEBI(objSidebarProjekt[i].checkboxId).checked === true && objSidebarType[i].checkboxId === id){
+                console.log("projket");
+            }
+            else{
+                for(let i = 0; i < antalType; i++){
+                    getDGEBI(objSidebarProjekt[i].stedId).classList.remove("forsvind");
+                    delete arrayType[i];
+                    objSidebarType[tal].oprettet = false;
+                }
+                deleteAlt("type", tal);
+                arrayType = arrayType.filter(function() {return true});
+                getDGEBI(objSidebarProjekt[tal].omraade).classList.remove("forsvind");
+                getDGEBI(objSidebarType[1].omraade).className = "forsvind";
+                getDGEBI(objSidebarSprog[1].omraade).className = "forsvind";
+            }
+        }
+        
+        /*
+        for(let i = 0; i < antalType; i++){
+            getDGEBI(objSidebarProjekt[i].stedId).classList.remove("forsvind");
+            //delete arrayType[i];
+        }
+        deleteAlt("type", tal);
+        arrayType = arrayType.filter(function() {return true});
+        getDGEBI(objSidebarProjekt[tal].omraade).classList.remove("forsvind");
+        getDGEBI(objSidebarType[1].omraade).className = "forsvind";
+        getDGEBI(objSidebarSprog[1].omraade).className = "forsvind";*/
+    }
+}
+
+function sprog(id, tal){
+    
+}
+
+function getDGEBI(checbox){
+	return document.getElementById(checbox);	
+}
+
+function deleteAlt(omraade, tal){
+    let antalPro = arrayProjket.length;
+    let antalType = arrayType.length;
+    if(omraade == objSidebarProjekt[tal].omraade){
+        for(let i = 0; i < antalPro; i++){
+            if(arrayProjket[i] != objSidebarProjekt[tal].routing){
+                console.log("projet slet");
+                console.log("noget til false projekt");
+                delete arrayProjket[i];
+                arrayProjket = arrayProjket.filter(function() {return true });
+                objSidebarProjekt[tal].oprettet = false;
+            }
+        }
+    }
+    else if(omraade === objSidebarType[tal].omraade){
+        //console.log("hej");
+        for(let i = 0; i < antalType; i++){
+            if(arrayType[i] != objSidebarType[tal].routing){
+                console.log("type slet");
+                console.log("noget til false type");
+                delete arrayType[i];
+                arrayType = arrayType.filter(function() {return true});
+                objSidebarType[tal].oprettet = false;
+            }
+        }
+    }
+}
+
+/**************************************************************************************/

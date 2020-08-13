@@ -2,16 +2,19 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', 1);
 
-	//$choice = explode("=", parse_url($_SERVER['QUERY_STRING'])["path"]);
-	//$choice = explode("=", parse_url($_SERVER['QUERY_STRING'])["path"]);
+	$choice = explode("=", parse_url($_SERVER['QUERY_STRING'])["path"]);
 
-	$choice = array();
+	$choiceTwo = $_GET["choice"];
+    
+
+/************************************************************************* videre her!
+/*	$choice = array();
 	parse_str($_SERVER["QUERY_STRING"], $choice);
 
 	var_dump($choice);
 	exit(0);
-
-	switch($choice[1]){
+*/
+	switch($choiceTwo){
 		case "overskiftType":
 			include_once("./classType.php");
 			
@@ -212,22 +215,76 @@
 			$tilsidst = rtrim($alt, "£");
 			echo $tilsidst;
 			break;
-		case "sprogBox0":
+		case "sprogBox":
+			include_once("./classProjekt.php");
+			include_once("./classBilleder.php");
+			
+			$query = $_GET["q"];
+			
+			$replace = str_replace("Sharp", "#", $query);
+			$hej = explode(",", $replace);
+			
+			$antalHej = count($hej);
+			$tekst = "";
+			for($i = 0; $i < $antalHej; $i++){
+				$tekst .=  "" . $hej[$i] . ",";
+			}
+			$tekst = rtrim($tekst, ",");
+			
+			$projekt = new projekter();
+			$billede = new Billeder();
+			
+			$resultPro = $projekt->getProjektWithSprog($tekst);
+			
+			$alt = "";
+			$antal = count($resultPro);
+			for($i = 0; $i < $antal; $i++){
+				$resultBil = $billede->test($tekst);
+				
+				$alt .= $resultBil[$i] . $resultPro[$i];
+			}
+			$alt = rtrim($alt, "£");
+			echo $alt;
+			break;
+		case "kun3Opgaver":
 			include_once("./classProjekt.php");
 			include_once("./classBilleder.php");
 			
 			$projekt = new projekter();
 			$billede = new Billeder();
 			
-			$antalChoice = count($choice);
-			$sqlTekst = "";
-			for($i = 2; $i < $antalChoice; $i++){
-				$sqlTekst .= $choice[i] . ", ";
+			$resultPro = $projekt->kun3Opgaver();
+			$alt = "";
+			$antal = count($resultPro);
+			for($i = 0; $i < $antal; $i++){
+				$resultBil = $billede->kun3OpgaverImg();
+				
+				$alt .= $resultBil[$i] . $resultPro[$i];
 			}
-			$tilsidst = rtrim($sqlTekst, ", ");
-			var_dump($tilsidst);
-			exit();
-			$resultPro = $projekt->test($sqlTekst);
+			$tilsidst = rtrim($alt, "£");
+			echo $tilsidst;
 			break;
+        case "test":
+            include_once("./miniRouting.php");
+            
+            $rounting = new miniRouting();
+            $query = $_GET["q"];
+            $array = explode(",", $query);
+            
+            $antal = count($array);
+            $tekst = "";
+            for($i = 0; $i < $antal; $i++){
+				$tekst .=  "" . $array[$i] . ",";
+			}
+            $tekst = rtrim($tekst, ",");
+            
+//            var_dump($tekst);
+            
+            $result = $rounting->routing($tekst);
+           
+//            var_dump($result);
+            
+            echo $result;
+            break;
 	}
 ?>
