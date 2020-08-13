@@ -5,6 +5,9 @@ function toggleSidebar() {
 	$(".side1").toggleClass("hide");
 }
 
+/***************************************************/
+/*                til at glemme sidebar            */
+/***************************************************/
 function hide(){
 	if($(".side1").hasClass("hide"))
 	{
@@ -16,8 +19,6 @@ function hide(){
 	   $(".hide_and_seek").hide();
 	   $(".hide_and_seek1").show();
 	}
-	
-	
 }
 
 /*******************************************************************/
@@ -67,6 +68,10 @@ function sidebar(){
 	opretCheckbox("Sprog", "HvilkeSprog", arrayOverskrift[2], "sprogBox");
 }
 
+let arrayAntal = [];
+let antalArray = 0;
+
+
 /***************************************************/
 /*             Til at oprette tjekboksene          */
 /***************************************************/
@@ -82,11 +87,13 @@ function opretCheckbox(routing, id, overskriftText, showOpgave){
 		
 		let p = document.createElement("p");
 		p.className = "tekst";
+        p.className = "testing tekst";
 		let overskrift = document.createTextNode(overskriftText); // her
 		p.appendChild(overskrift);
 		li.appendChild(p);
-		
+        
 		let tal = 0;
+       
 		array.forEach(function(index){
 			let value = index.split("'");
 			
@@ -94,6 +101,7 @@ function opretCheckbox(routing, id, overskriftText, showOpgave){
 			input.setAttribute("type", "checkbox");
 			input.setAttribute("id", showOpgave +tal);
 			input.setAttribute("onclick", "showAlleOpgaver('" + showOpgave +  tal + "')"); // her
+            input.className = "testing";
 			li.appendChild(input);
 			
 			let a = document.createElement("a");
