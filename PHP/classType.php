@@ -1,4 +1,7 @@
 <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
 	include_once("./db.php");
 	include_once("./tabel/type.php");
 	
@@ -50,13 +53,33 @@
             
             $stmt->bind_param("s", $type);
             $stmt->execute();
-            $result = $stmt->a
+            $result = $stmt->affected_rows;
+            
+            if($result === 1){
+                http_response_code(201);
+                $finish = "oprettet";
+            }
+            else{
+                http_response_code(404);
+                die("Det bliv ikke oprettet");
+            }
+            $stmt->close();
+            $db->conn->close();
+            
+            echo $finish;
         }
         
         /***********************************************/
-        /*              update typer                   */
+        /*            update alt i typer               */
         /***********************************************/
-        public function updateTyper(){
+        public function updateAllTyper(){
+            
+        }
+        
+        /***********************************************/
+        /*            update en ting typer             */
+        /***********************************************/
+        public function updateSingleThingType(){
             
         }
         
@@ -89,8 +112,29 @@
         /*              get all typer                  */
         /***********************************************/
         public function getTyper(){
+            $db = new DB();
+            $typer = array();
             
+            $stmt = $db->conn->prepare("SELECT id, type FROM projekttype"); 
+    
+            $stmt->execute();
+            $result = $stmt->get_result();
+           
+            if($result != false){
+                http_response_code(200);
+                while($row = $result->fetch_object()){
+                    $typer[] = new Typez($row->id, $row->type);
+                }
+            }
+            else{
+                http_response_code(404);
+                die("Det bliv ikke fundet");
+            }
+            $stmt->close();
+            $db->conn->close();
+            return $typer;
         }
+        
         /******************************************************************************************************/
         /*                           til andet der kunne være udover (alm)crud                                */
         /******************************************************************************************************/

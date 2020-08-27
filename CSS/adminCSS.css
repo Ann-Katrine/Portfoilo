@@ -15,6 +15,68 @@
         margin-inline-end: 0px;
     }
 
+    header{
+        height:70px;
+    }
+
+    .rainbow {
+	   background-image: linear-gradient(to left, #33ccff -44%, #ff99cc 91%);
+    }
+
+    .topOverskrift{
+        text-align: center;
+        color: white;
+        font-size: 60px;
+    }
+    
+    .test1{
+        padding: 10px;
+        background-color: aqua;
+    }
+
+    .boks{
+        border-radius: 25px;
+        padding: 16px;
+        min-height: 517px;
+        margin: 15px;
+        
+        -webkit-box-shadow: 0px 0px 7px 2px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+        -moz-box-shadow:    0px 0px 7px 2px #ccc;  /* Firefox 3.5 - 3.6 */
+        box-shadow:         0px 0px 7px 2px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+    }
+
+    .pinkBorder{
+        border: 3px solid #ff99cc;
+    }
+    .blueBorder{
+        border: 3px solid #33ccff;
+    }
+    .purpleBorder{
+        border: 3px solid #cc66ff;
+    }
+
+    .imgSorrelse{
+        width: 100%;
+        height: 120px;
+    }
+
+    .mellemrum{
+        margin-bottom: 10px;
+    }
+
+    #sprogBoks, #kategoriBoks, #tekstboks{
+        border: none;
+        margin-top: 7px;
+        width: 300px;
+        height: 130px;
+        border-radius: 25px;
+        padding: 10px;
+
+        -webkit-box-shadow: 0px 0px 7px 2px #33ccff;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+        -moz-box-shadow:    0px 0px 7px 2px #33ccff;  /* Firefox 3.5 - 3.6 */
+        box-shadow:         0px 0px 7px 2px #33ccff;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+    }
+
 /*******************************************************************/
 /*                            navbar                               */
 /*******************************************************************/ 
@@ -39,38 +101,162 @@
         display: block; /* den bruges når man er på IE6-7 for der virker inline-block ikke */
       }
 
-      li a {
+    li a {
     /*    display:inline-block;  gør at linkene ikke begynder at sætte sig under hinanden */
         padding: 10px;
         text-decoration: none;
         color: white;
-      }
+    }
 
-      li a:hover:not(.active) {
-        /*background-color: #111;*/
-      }
+    li a:hover:not(.active) {
+    /*        background-color: #111;*/
+    }
 
-      .active {
-        background-color:  #0cd9f5;
-      }
+    .active {
+    background-color:  #0cd9f5;
+    }
+
+/*******************************************************************/
+/*                           Buttons                               */
+/*******************************************************************/ 
+    button{
+        border: none;
+        background-color: #f1f1f1;
+        font-size: 19px;
+        border-radius: 25px;
+        padding: 5px;
+    }
+
+    .smallSize{
+
+    }
+
+    .mediumSize{
+        width: 200px;
+    }
+
+    .bigSize{
+
+    }
 
 /*******************************************************************/
 /*                           flexbox                               */
 /*******************************************************************/ 
-    /* Column container */
+/*************************************************/
+/*     skælning mellem navbar og main ting       */
+/*************************************************/
     .row1 {  
         display: flex;
         flex-wrap: wrap;
     }
 
     .side1 {
-      flex: 20%;
+      flex: 15%;
       background-color: #f1f1f1;
       padding: 20px;
     }
 
     .main1 {
-      flex: 80%;
+      flex: 85%;
       background-color: white;
       padding: 20px;
     }
+
+    #opretBill, #opretProj, #opretTypen, #opretKate{
+        margin-bottom: 15px;
+        margin-left: 5px;
+    }
+
+/*************************************************/
+/*               til liste tingene               */
+/*************************************************/
+    .liste{
+        display: flex;
+        flex-flow: row nowrap; /*  flex-direction: row; og flex-wrap: nowrap;*/
+        justify-content: space-between;
+    }
+
+    .listeNed{
+        display: flex;
+        flex-flow: column nowrap;   /*  flex-direction: column; og flex-wrap: nowrap;*/
+    }
+
+    .toSider{
+        display: flex;
+        flex-flow: row nowrap; /*  flex-direction: row; og flex-wrap: nowrap;*/
+    }
+
+/*************************************************/
+/*            mellemrum mellem tingene           */
+/*************************************************/
+    .flex5{
+        flex: 5%;
+    }
+    .flex10{
+        flex: 10%;
+    }
+    .flex20{
+        flex: 20%;
+    }
+    .flex30{
+        flex: 30%;
+    }
+    .flex40{
+        flex: 40%;
+    }
+    .flex50{
+        flex: 50%;
+    }
+    .flex60{
+        flex: 60%;
+    }
+    .flex70{
+        flex: 70%;
+    }
+    .flex80{
+        flex: 80%;
+    }
+    .flex90{
+        flex: 90%;
+    }
+
+
+    .border{
+        background-image: linear-gradient(to top, #ffffff 0%, #ff99cc 300%);
+        border-radius: 10px;
+        margin: 10px;
+        padding: 5px;
+        height: 412px;
+    }
+
+    .kant{
+        border-radius: 10px;
+        padding: 5px;
+        margin-bottom: 3px;
+    }
+
+    .pinkKant{
+        border: 1px solid #ff99cc;
+    }
+    .blueKant{
+        border: 1px solid #33ccff;
+    }
+    .purpleKant{
+        border: 1px solid #cc66ff;
+    }
+
+
+    .test{
+        border: 3px solid white;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 5px;
+        height: 412px;
+        
+        -webkit-box-shadow: 0px 0px 7px 2px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+        -moz-box-shadow:    0px 0px 7px 2px #ccc;  /* Firefox 3.5 - 3.6 */
+        box-shadow:         0px 0px 7px 2px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+    }
+
+
+/*************************************************/

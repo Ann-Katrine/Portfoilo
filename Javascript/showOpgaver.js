@@ -617,7 +617,7 @@ function Opgaver(projekt, plads){
 function addTheRestTooOpgaver(temp, div){
     let img = document.createElement("img");
     img.className = "img";
-    img. setAttribute("src", temp[0]);
+    img.setAttribute("src", temp[0]);
     img.setAttribute("alt", temp[1]);
     div.appendChild(img);
 

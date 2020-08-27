@@ -1,37 +1,285 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Forside</title>
+        <title>Administrator</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="CSS/adminCSS.css" rel="stylesheet" type="text/css">
     </head>
-    <body>
-       <header>
+    <body onload="start()">
+        <header class="rainbow">
+           <div class="topOverskrift">
+               <p>Portfolio Administrator side</p>
+           </div>
+           
 		</header>
-		<main>
+        <main>
 			<!-- The flexible grid (content) -->
 			<div  class="row1">
 				<div class="side1 ">
 					<!-- Navigation Bar -->
-                    <nav id="navbar" class="">
-                        <ul class="teskt">
+                    <nav id="navbar">
+                        <ul class="">
                             <li>
-                                <a href="">Forside</a>
+                                <button id="proj">Projekter</button>
                             </li>
                             <li>
-                                <button onclick="myfunction()">testsiden</button>
+                                <button id="bill">Billeder</button>
                             </li>
                             <li>
-                                <a href="">Kontakt</a>
+                                <button id="type">Type</button>
+                            </li>
+                            <li>
+                                <button id="kate">Sprog</button>
                             </li>
                         </ul>
                     </nav>
 				</div>
 
 				<div class="main1">
-					<p>hejsa</p>
-                    <div id="text1"></div>
+                    <div id="billeder">
+                        <!--
+                        <div class="test1">
+                            <p>Billeder</p>
+                        </div>
+                        -->
+                        <div class="boks pinkBorder">
+                            <div id="opretBillede">
+                                <div class="listeNed">
+                                    <form method="post" name="postFormBill" id="postFormBill">
+                                        <div>
+                                            <label>beskrivelse: </label><input type="text" name="beskrivelse" id="beskrivelse">
+                                        </div>
+                                        <div>
+                                            <label>Billede: </label><input type="file" name="billeder" id="billeder">
+                                        </div>
+                                        
+                                        <input type="button" value="Opret" id="postFormBill" onclick="postBilleder()">
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                            
+                            <div id="billedListe">
+                                <button id="opretBill">Opret Billede</button>
+                                
+                                <div class="test plads">
+                                    <div class="liste kant pinkKant">
+                                        <div class="flex10">
+                                            <p>viser billeder</p>
+                                        </div>
+                                        <div class="flex40">
+                                            <p>Uri</p>
+                                        </div>
+                                        <div class="flex40">
+                                            <p>Beskrivelse</p>
+                                        </div>
+                                        <div class="flex5"> 
+                                            <p>redi</p>
+                                        </div>
+                                        <div class="flex5">
+                                            <p>slet</p>
+                                        </div>
+                                    </div>
+                                    <div id="listeTingBill">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="projeker">
+                        <!--
+                        <div class="test1">
+                            <p>projekter</p>
+                        </div>
+-->
+                        <div class="projektListe">
+                            <div class="boks blueBorder">
+                                <div id="opretProjekter">
+                                    <div class="toSider">
+                                        <div class="flex10"></div>
+                                        <div class="flex40">
+                                            <form method="post" name="postForm" id="postFormProj">
+                                                <div>
+                                                    <label>Name: </label><input type="text" name="Navn" id="Navn">
+                                                </div>
+                                                <div>
+                                                    <label>Date: </label>
+                                                    <input type="date" name="Dato" id="Dato">
+                                                </div>
+                                                <div>
+                                                    <label>Tekst: </label>
+                                                    <input type="text" name="tekst", id="tekst">
+                                                </div>
+                                                <input type="button" value="Opret" onclick="postProjekt()" id="#postFormProj">
+                                            </form>
+                                            <!--
+                                            <div class="mellemrum">
+                                                <label>Navn: </label><input type="text" >
+                                            </div>
+                                            <div class="mellemrum">
+                                                <label>Dato: </label><input type="date">
+                                            </div>
+                                            <div class="mellemrum">
+                                                <label>Tekst: </label><br>
+                                                <input type="text" id="tekstboks">
+                                            </div>
+                                            <div class="mellemrum">
+                                                <label>Billede: </label><input type="file">
+                                            </div>
+                                        </div>
+                                        <div class="flex40">
+                                            <div class="mellemrum">
+                                                <label>Kategori: </label>
+                                                <div id="kategoriBoks">
+                                                    <div id="optionSprog">
+                                                        <div>
+                                                            <p>Kategori |</p>
+                                                            <p></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mellemrum">
+                                                <label>Sprog: </label>
+                                                <div id="sprogBoks">
+                                                    <div id="optionSprog">
+                                                        <div>
+                                                            <p>Sprog |</p>
+                                                            <p></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+-->
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="teskt">
+                                        <button id="projListe" class="mediumSize">Opret</button>
+                                    </div>
+                                </div>
+                                
+                                <div id="projektListe">
+                                    <button id="opretProj">Opret Projekter</button>
+                            
+                                    <div class="test plads">
+                                        <div class="liste kant blueKant">
+                                            <div class="flex20">
+                                                <p>Navn</p>
+                                            </div>
+                                            <div class="flex10">
+                                                <p>Dato</p>
+                                            </div>
+                                            <div class="flex30">
+                                                <p>Tekst</p>
+                                            </div>
+                                            <div class="flex20">
+                                                <p>Billed</p>
+                                            </div>
+                                            <div class="flex20">
+                                                <p>kategori</p>
+                                            </div>
+                                            <div class="flex20">
+                                                <p>Sprog</p>
+                                            </div>
+                                            <div class="flex5"> 
+                                                <p>redi</p>
+                                            </div>
+                                            <div class="flex5">
+                                                <p>slet</p>
+                                            </div>
+                                        </div>
+                                        <div id="listeTingProj">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div id="proType">
+                        <!--
+                        <div class="test1">
+                            <p>Typer</p>
+                        </div>
+-->
+                        <div class="boks purpleBorder">
+                            <div id="opretType">
+                                <div class="listeNed">
+                                    <form method="post" name="postFormType" id="postFormType">
+                                        <div>
+                                            <label>Type: </label><input type="text" name="typen" id="typen">
+                                        </div>
+                                        
+                                        <input type="button" value="Opret" id="postFromType" onclick="postType();">
+                                    </form>
+                                </div>
+                            </div>
+                            
+                            <div id="typeListe">
+                                <button id="opretTypen">Opret Type</button>
+                                
+                                <div class="test plads">
+                                    <div class="liste kant purpleKant">
+                                        <div class="flex90">
+                                            <p>Sprog</p>
+                                        </div>
+                                        <div class="flex5"> 
+                                            <p>redi</p>
+                                        </div>
+                                        <div class="flex5">
+                                            <p>slet</p>
+                                        </div>
+                                    </div>
+                                    <div id="listeTingType">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="kategori">
+                        <!--
+                        <div class="test1">
+                            <p>Kategori</p>
+                        </div>
+-->
+                        <div class="boks pinkBorder">
+                            <div id="opretKategori">
+                                <div class="listeNed">
+                                    <form method="post" name="postFormKateg" id="postFormKateg">
+                                        <div>
+                                            <label>Kategori: </label><input type="text" name="kategorien" id="kategorien">
+                                        </div>
+                                        
+                                        <input type="button" value="opret" onclick="postKategori()" id="postFormKateg">
+                                    </form>
+                                    
+<!--                                    <button id="kateListe" class="mediumSize centerButton">Opret</button>-->
+                                </div>
+                            </div>
+                            
+                            <div id="kategoriListe">
+                                <button id="opretKate">Opret Sprog</button>
+                                
+                                <div class="test plads">
+                                    <div class="liste kant pinkKant">
+                                        <div class="flex90">
+                                            <p>Kategori</p>
+                                        </div>
+                                        <div class="flex5"> 
+                                            <p>redi</p>
+                                        </div>
+                                        <div class="flex5">
+                                            <p>slet</p>
+                                        </div>
+                                    </div>
+                                    <div id="listeTingKate">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 				</div>
 			</div>
 		</main>
@@ -39,6 +287,7 @@
     </body>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-    <script src="Javascript/test.js"></script>
+
+    <script src="Javascript/adminShowListe.js"></script>
+    <script src="Javascript/SPA.js"></script>
 </html>

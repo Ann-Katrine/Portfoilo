@@ -81,7 +81,7 @@
             
             $rows = $this->getRows($tal);
             
-            $stmt = $db->conn->prepare("SELECT idProjektType, idProjekt FROM projekttype_has_projekt WHERE " . $row[0] . " = ?");
+            $stmt = $db->conn->prepare("SELECT idProjektType, idProjekt FROM projekttype_has_projekt WHERE " . $rows[0] . " = ?");
             
             $stmt->bind_param("i", $id);
             $stmt->execute();

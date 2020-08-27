@@ -1,4 +1,7 @@
 <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
 	include_once("./db.php");
 	include_once("./tabel/billeder.php");
 
@@ -35,14 +38,42 @@
         /***********************************************/
         /*              create billeder                */
         /***********************************************/
-        public function postBilleder(){
+        public function postBilleder($billedet, $tekst){
+            $db = new DB();
+            
+            $stmt = $db->conn->prepare("INSERT INTO billeder (img, imgTekst) VALUES (?, ?)");
+            
+            
+            
+            $stmt->bind_param("ss", $billedet, $tekst);
+            $stmt->execute();
+            $result = $stmt->affected_rows;
+            
+            if($result === 1){
+                http_response_code(201);
+                $finish = "oprettet";
+            }
+            else{
+                http_response_code(404);
+                die("Det blic ikke oprettet");
+            }
+            $stmt->close();
+            $db->conn->close();
+            echo $finish;
+        }
+        
+        /***********************************************/
+        /*              put billeder                   */
+        /***********************************************/
+        public function putBilleder(){
             
         }
         
         /***********************************************/
-        /*              update billeder                */
+        /*              patch billeder                 */
         /***********************************************/
-        public function updateBilleder(){
+        public function patchBilleder(){
+            
             
         }
         
@@ -78,15 +109,21 @@
             $db = new DB();
             $billeder = array();
             
-            $sql = "SELECT billeder.id, billeder.img, billeder.imgTekst FROM billeder_has_projekt INNER JOIN billeder ON billeder.id = billeder_has_projekt.idbilleder";
+            $stmt = $db->conn->prepare("SELECT id, img, imgTekst FROM billeder");
             
-            $result = $db->conn->query($sql);
+            $stmt->execute();
+            $result = $stmt->get_result();
             
-            while($row = $result->fetch_object()){
-                $billeder[] = new billed($row->id, $row->img, $row->imgTekst);
+            if($result != false){
+                while($row = $result->fetch_object()){
+                    $billeder[] = new billed($row->id, $row->img, $row->imgTekst);
+                } 
             }
-//            var_dump($billeder);
-//            exit();
+            else{
+                http_response_code(404);
+                die("Det bliv ikke fundet");
+            }
+            $stmt->close();
             $db->conn->close();
             return $billeder;
         }
